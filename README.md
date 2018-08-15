@@ -16,12 +16,12 @@ JitPack仓库地址：https://jitpack.io/
 
    将其添加到存储库末尾的根build.gradle中：
 
-	allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
+		allprojects {
+			repositories {
+				...
+				maven { url 'https://jitpack.io' }
+			}
 		}
-	}
 	
 	步骤2.添加依赖项
 
