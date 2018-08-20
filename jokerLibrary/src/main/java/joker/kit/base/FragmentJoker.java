@@ -23,8 +23,6 @@ public class FragmentJoker extends Fragment{
 
     public FragmentJoker(int Layout) {
         this.Layout = Layout;
-        
-
         Log.e("FragmentJoker","FragmentJoker 构造方法");
     }
 
@@ -81,6 +79,7 @@ public class FragmentJoker extends Fragment{
     public void Toast(String msg) {
         Toast.makeText(activityJoker, msg, Toast.LENGTH_LONG).show();
     }
+
     /**findViewById代码简洁*/
     public View findViewById(int id) {
         return viewJoker.findViewById(id);

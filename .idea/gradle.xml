@@ -8,8 +8,8 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/jokerDemo" />
             <option value="$PROJECT_DIR$/jokerLibrary" />
+            <option value="$PROJECT_DIR$/jokerdemo" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
