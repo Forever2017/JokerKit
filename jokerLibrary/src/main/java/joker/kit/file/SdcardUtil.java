@@ -87,6 +87,27 @@ public class SdcardUtil {
         }
         return result;
     }
+
+    /**
+     * 获取指定路径下所有文件（文件+文件夹）
+     * dirPath 路径
+     * type 文件类型   .txt   .doc   传空或者null获取全部（单单判断文件名）
+     */
+    public static List<File> getSumFile(String dirPath) {
+        File dir = new File(dirPath);
+
+        //文件夹不存在
+        if (!dir.exists()) return null;
+
+        //取出文件列表 包含文件和文件夹
+        File[] files = dir.listFiles();
+        List<File> result = new ArrayList<>();
+        for (File file : files) {
+            result.add(file);
+        }
+        return result;
+    }
+
     /**
      * 创建 文件夹
      *
