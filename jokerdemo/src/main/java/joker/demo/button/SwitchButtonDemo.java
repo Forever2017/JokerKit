@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import joker.demo.R;
 import joker.kit.base.ActivityJoker;
-import joker.kit.view.button.SwitchButton;
+import github.switchbutton.SwitchButton;
 
 public class SwitchButtonDemo extends ActivityJoker {
 
@@ -17,7 +17,7 @@ public class SwitchButtonDemo extends ActivityJoker {
 
 
     public void switchButton() {
-        final joker.kit.view.button.SwitchButton switchButton = findViewById(R.id.switch_button);
+        final SwitchButton switchButton = findViewById(R.id.switch_button);
 //        switchButton.setChecked(true);
 //        switchButton.toggle();//切换状态
 //        switchButton.isChecked();

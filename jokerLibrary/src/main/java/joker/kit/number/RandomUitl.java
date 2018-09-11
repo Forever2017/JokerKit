@@ -1,8 +1,8 @@
-package joker.kit.arithmetic;
+package joker.kit.number;
 
 import java.util.Random;
-
-public class DigitalUitl {
+/** 随机生成相关（主要是数字）*/
+public class RandomUitl {
     private static char[] str = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w',
             'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
     private static String[] telFirst = "134,135,136,137,138,139,150,151,152,157,158,159,130,131,132,155,156,133,153".split(",");

@@ -1,4 +1,4 @@
-package joker.kit.view.button;
+package github.switchbutton;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
