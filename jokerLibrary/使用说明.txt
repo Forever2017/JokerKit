@@ -1,4 +1,4 @@
-adapt
+﻿adapt
 各种适配版本
 
 arithmetic
@@ -19,7 +19,8 @@ permissions
 view
 UI控件相关，一些自定义控件、构造器之类的
 
-/**
+###################################################################
+
 	注意：Eclipse和AndroidStudio都可以引用使用..
 	AS直接依赖jokerLibrary即可
 	Eclipse除了依赖jokerLibrary，还需要导入RecyclerView项目（AS中已直接依赖，eclipse不支持，需要使用子Lib来使用）
@@ -29,5 +30,48 @@ UI控件相关，一些自定义控件、构造器之类的
 		   [2018-09-12 17:57:27 - TestLib] Unknown error: Unable to build: the file dx.jar was not loaded from the SDK folder!
 		解决方法：Android SDK Build-tools的版本已经高于Android SDK Platform-tools版本
 		在主项目project.properties文件中增加sdk.buildtools=25.0.3 （25.0.3版本号使用本机有的SDK版本）
-*/
+
+#######  AS引用外部lib但是不复制到本项目  ###################################################
+ setting.gradle
+	include ':app', ':android-beacon-library'  
+	project(':android-beacon-library').projectDir = new File('../android-beacon-library')
+build.gradle
+	implementation project(':android-beacon-library')
+
+路径正确格式：
+       提示:  ..  代表当前目录的上一级目录
+            【相对路径】不加settingsDir也行...
+	new File(settingsDir,'../jokerLibrary')  ../  和项目文件夹齐平的目录...
+	new File('../android-beacon-library')  ../  和项目文件夹齐平的目录...
+	new File(settingsDir, '../../jokerLibrary')//项目目录上一层
+	new File(settingsDir, '../../AAAAA/jokerLibrary')//项目目录上一层不同文件夹下~
+	new File(settingsDir, '../../../../JokerKit/jokerLibrary') 后退4层文件夹
+
+           【绝对路径】 new File('D:/GitHub/jokerLibrary') 
+	   
+	   
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
