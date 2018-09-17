@@ -10,4 +10,11 @@
 /captures
 .externalNativeBuild
 .idea/caches/build_file_checksums.ser
+<<<<<<< HEAD
 jokerLibrary/bin/
+=======
+jokerLibrary/jokerLibrary.iml
+jokerLibrary/build/outputs/logs/manifest-merger-debug-report.txt
+jokerLibrary/build/intermediates/symbols/debug/R.txt
+jokerLibrary/build/intermediates/res/symbol-table-with-package/debug/package-aware-r.txt
+>>>>>>> a1b43c35028d22611fa08db0f173ab4a89c116bf
