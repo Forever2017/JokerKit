@@ -1,7 +1,10 @@
-﻿package joker.kit.number;
+package joker.kit.number;
 
 import java.util.Random;
-/** 随机生成相关（主要是数字）*/
+
+/**
+ * 随机生成相关（主要是数字）
+ */
 public class RandomUitl {
     private static char[] str = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w',
             'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
@@ -47,17 +50,11 @@ public class RandomUitl {
         return pwd.toString();
     }
 
-	/**
-	 * 产生指定范围的随机整数
-	 * The difference between min and max can be at most
-	 * <code>Integer.MAX_VALUE - 1</code>.
-	 *
-	 * @param min Minimum value
-	 * @param max Maximum value.  Must be greater than min.
-	 * @return Integer between min and max, inclusive.
-	 * @see java.util.Random#nextInt(int)
-	 */
-	public static int randInt(int min, int max) {
+    /**
+     * 产生指定范围的随机整数
+     * java.util.Random # nextInt(int)
+     */
+	/*public static int randInt(int min, int max) {
 
 		// NOTE: Usually this should be a field rather than a method
 		// variable so that it is not re-seeded every call.
@@ -68,7 +65,7 @@ public class RandomUitl {
 		int randomNum = rand.nextInt((max - min) + 1) + min;
 
 		return randomNum;
-	}
+	}*/
 
 
 }
