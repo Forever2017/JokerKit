@@ -1,6 +1,11 @@
+### Java template
+*.class
+.metadata
+.settings
+bin
+###AS
 *.iml
 .gradle
-/bin
 /local.properties
 /.idea/workspace.xml
 /.idea/libraries
