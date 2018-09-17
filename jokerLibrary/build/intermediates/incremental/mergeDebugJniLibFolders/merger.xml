@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="D:\GitHub\JokerKit\jokerLibrary\libs"><file name="ormlite-android-5.1.jar" path="D:\GitHub\JokerKit\jokerLibrary\libs\ormlite-android-5.1.jar"/><file name="ormlite-core-5.1.jar" path="D:\GitHub\JokerKit\jokerLibrary\libs\ormlite-core-5.1.jar"/></source></dataSet><dataSet config="debug"><source path="D:\GitHub\JokerKit\jokerLibrary\src\debug\jniLibs"/></dataSet></merger>
