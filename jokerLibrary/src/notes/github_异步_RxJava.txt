@@ -1,0 +1,11 @@
+RxJava
+异步、简洁
+https://github.com/ReactiveX/RxJava
+https://github.com/ReactiveX/RxAndroid
+
+1、引入依赖
+    app->
+    implementation 'io.reactivex:rxjava:1.0.14'
+    implementation 'io.reactivex:rxandroid:1.0.1'
+
+2、

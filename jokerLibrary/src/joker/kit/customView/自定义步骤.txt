@@ -1,0 +1,179 @@
+1、首先建立一个资源文件最为控件属性配置
+    attrs.xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <resources>
+        <declare-styleable name="Topbar">
+            <attr name="title" format="string"/>
+            <attr name="titleTextSize" format="dimension"></attr>
+            <attr name="titleTextColor" format="color"></attr>
+            <attr name="leftText" format="string"/>
+            <attr name="leftTextColor" format="color"></attr>
+            <attr name="leftBackground" format="reference|color"></attr>
+            <attr name="rightText" format="string"/>
+            <attr name="rightTextColor" format="color"></attr>
+            <attr name="rightBackground" format="reference|color"></attr>
+        </declare-styleable>
+    </resources>
+
+2、然后继承RelativeLayout的类，实现组合自定义控件和方法，自添加定义回调接口
+  NormalTitleBar.java
+    public class NormalTitleBar extends RelativeLayout {
+
+        protected RelativeLayout mRootView;//整体容器控件
+        protected TextView customTitleBarlTitle;//标题文字控件
+        protected ImageView customTitleBarlBack;//左边按钮控件
+        protected Button customTitleBarlRight;//右边按钮控件
+
+        protected String mTitle = "";//标题文字
+        protected boolean left_visible, right_visible;//按钮是否隐藏或显示
+        protected int titleColor;//整体背景色
+
+        private topbarClickListener mListener;// 映射传入的接口对象，返回点击事件
+
+        public NormalTitleBar(Context context) {
+            super(context);
+            doInit(context, null);
+        }
+
+        public NormalTitleBar(Context context, AttributeSet attrs) {
+            super(context, attrs);
+            doInit(context, attrs);
+        }
+
+        public NormalTitleBar(Context context, AttributeSet attrs, int defStyleAttr) {
+            super(context, attrs, defStyleAttr);
+            doInit(context, attrs);
+        }
+
+        protected int setLayoutId() {
+            return R.layout.custom_title_barl;
+        }
+
+        @SuppressLint("ResourceAsColor")
+        protected void doInit(Context context, AttributeSet attrs) {
+            /**布局文件*/
+            LayoutInflater.from(context).inflate(setLayoutId(), this, true);
+            /**通过这个方法，将你在atts.xml中定义的declare-styleable的所有属性的值存储到TypedArray中*/
+            TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.Topbar);
+
+
+            /** 从TypedArray中取出对应的值来为要设置的属性赋值*/
+            mTitle = attributes.getString(R.styleable.Topbar_title);
+            left_visible = attributes.getBoolean(R.styleable.Topbar_left_visible, true);
+            right_visible = attributes.getBoolean(R.styleable.Topbar_left_visible, true);
+            titleColor = attributes.getColor(R.styleable.Topbar_titleColor, R.color.cornflowerblue);
+
+            /** 获取完TypedArray的值后，一般要调用recyle方法来避免重新创建的时候的错误 */
+            recycleAttributeSet(attributes);
+
+            init();
+        }
+
+
+        protected void init() {
+            mRootView = (RelativeLayout) findViewById(R.id.mRootView);
+            customTitleBarlTitle = (TextView) mRootView.findViewById(R.id.CustomTitleBarlTitle);
+            customTitleBarlBack = (ImageView) mRootView.findViewById(R.id.CustomTitleBarlBack);
+            customTitleBarlRight = (Button) mRootView.findViewById(R.id.CustomTitleBarlRight);
+
+
+            customTitleBarlTitle.setText(mTitle);
+            customTitleBarlBack.setVisibility(left_visible ? View.VISIBLE : View.GONE);
+            customTitleBarlBack.setVisibility(left_visible ? View.VISIBLE : View.GONE);
+            mRootView.setBackgroundColor(titleColor);//标题栏背景色
+
+            // 按钮的点击事件，不需要具体的实现，
+            // 只需调用接口的方法，回调的时候，会有具体的实现
+            customTitleBarlBack.setOnClickListener(new OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    if (mListener != null) mListener.leftClick();
+
+                }
+            });
+
+            customTitleBarlRight.setOnClickListener(new OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    if (mListener != null) mListener.rightClick();
+                }
+            });
+        }
+
+
+        protected void recycleAttributeSet(TypedArray attributes) {
+            if (attributes != null) {
+                attributes.recycle();
+            }
+        }
+        // 暴露一个方法给调用者来注册接口回调
+        // 通过接口来获得回调者对接口方法的实现
+        public void setOnTopbarClickListener(topbarClickListener mListener) {
+            this.mListener = mListener;
+        }
+
+        // 接口对象，实现回调机制，在回调方法中
+        // 通过映射的接口对象调用接口中的方法
+        // 而不用去考虑如何实现，具体的实现由调用者去创建
+        public interface topbarClickListener {
+            // 左按钮点击事件
+            void leftClick();
+
+            // 右按钮点击事件
+            void rightClick();
+        }
+
+
+        /**对外的方法，根据需要慢慢加...*/
+        public void setTitle(String title) {
+            mTitle = title;
+            customTitleBarlTitle.setText(mTitle);
+        }
+
+        public void setRight(String text) {
+            customTitleBarlRight.setVisibility(View.VISIBLE);
+            customTitleBarlRight.setText(text);
+        }
+    }
+
+3、然后再我们需要的布局上引入我们的自定义控件。加上  xmlns:app="http://schemas.android.com/apk/res-auto"  就可以用了。
+  home.xml
+    <?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <joker.kit.customView.NormalTitleBar
+                android:id="@+id/mNormalTitleBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                app:right_visible="false" //右边按钮隐藏
+                app:titleColor="@color/main_green" //标题栏背景
+                ...  根据attrs.xml 文件设置
+                />
+
+    </LinearLayout>
+
+4、Java类中使用..
+   home.java
+   NormalTitleBar tb = (NormalTitleBar) findViewById(R.id.mNormalTitleBar);
+   tb.setOnTopBarClick(new OnTopBarClickListener() {
+
+               @Override
+               public void rightClick() {
+                   Toast.makeText(MainActivity.this, "前进", Toast.LENGTH_SHORT).show();
+
+               }
+
+               @Override
+               public void leftClick() {
+                   Toast.makeText(MainActivity.this, "后退", Toast.LENGTH_SHORT).show();
+               }
+   });
+   tb.setTitle("标题名");
+   .. 等等

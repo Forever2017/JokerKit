@@ -1,0 +1,62 @@
+Retrofit2
+网络请求库，它对okHttp进行了封装，加上利用了Java注解等特性，使得它能适应于灵活多变的网络请求情景。
+http://square.github.io/retrofit/
+
+
+1、下载
+    app->
+    ### implementation 'com.squareup.retrofit2:retrofit:2.0.2'
+
+2、添加转换器
+    Retrofit2默认是把响应反序列化到OkHttp的“ResponseBody”这个类型，让它支持不同的响应类型添加特定的依赖(如json、xml),就必须为Retrofit2添加转换器，比如GsonConverterFactory。
+    app->
+    //使用Gson来解析返回的Json数据，则添加如下依赖：
+    ### implementation 'com.squareup.retrofit2:converter-gson:2.0.2'
+
+    官网给出了如下六种Converter：
+    - Gson: com.squareup.retrofit2:converter-gson
+    - Jackson: com.squareup.retrofit2:converter-jackson
+    - Moshi: com.squareup.retrofit2:converter-moshi
+    - Protobuf: com.squareup.retrofit2:converter-protobuf
+    - Wire: com.squareup.retrofit2:converter-wire
+    - Simple XML: com.squareup.retrofit2:converter-simplexml
+    - Scalars: com.squareup.retrofit2:converter-scalars
+
+3、创建JavaBean类（接收返回json数据，与json变量名对应）LoginBean
+
+4、创建interface 服务接口
+    public interface ApiInterface {
+        @POST("Login/CheckLogin")
+        Call<LoginBean> login(@Field("Account") String ccount,@Field("PassWord") String PassWord);
+    }
+
+5、创建Retrofit
+    Retrofit retrofit2 = new Retrofit.Builder()
+             .baseUrl("https://api.testurl.cn/")//设置Url 必须以 /（斜线） 结束，不然会抛出一个IllegalArgumentException
+             .client(okHttpClient)
+              .addConverterFactory(GsonConverterFactory.create())//设置解析器 即上面提到的GsonConverterFactory
+             .build();
+
+     //这里是interface不是class，所以我们是无法直接调用该方法，我们需要用Retrofit创建一个BlogService的代理对象。
+    ApiInterface apiService = retrofit2.create(ApiInterface.class);
+
+
+6、创建请求，设置请求参数，执行请求
+    *.java ->
+        Call<LoginBean> call = apiService.login("ccount","PassWord");
+        Call.enqueue(new Callback<LoginBean>() {
+            @Override
+            public void onResponse(Call<LoginBean> call, Response<LoginBean> response) {
+                LoginBean loginBean = response.body();
+                Log.d("cylog",loginBean.results.get(0).now.temperature+"");
+            }
+
+            @Override
+            public void onFailure(Call<LoginBean> call, Throwable t) {
+                Log.d("cylog", "Error" + t.toString());
+            }
+        });
+
+### 基础用法完成.
+    1. 注解等详解：https://www.jianshu.com/p/308f3c54abdd
+    2.

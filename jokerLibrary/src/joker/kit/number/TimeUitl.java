@@ -1,7 +1,11 @@
 package joker.kit.number;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**时间工具相关*/
 public class TimeUitl {
+   private static SimpleDateFormat df;
 
    /**
     *  int转时间  1500秒转换成 00:00:00
@@ -13,5 +17,39 @@ public class TimeUitl {
         return hh+":"+mm+":"+ss;
     }
 
+    /**
+     * 获取当前时间
+     * "yyyy-MM-dd HH:mm:ss"
+     * */
+    public static String getCurrentTimeHMS(){
+        df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        return df.format(new Date());
+    }
+    /**
+     * 获取当前时间(精确到毫秒)
+     * "yyyy-MM-dd HH:mm:ss.SSS"
+     * */
+    public static String getCurrentTimeHMSS(){
+        df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");//设置日期格式
+        return df.format(new Date());
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
