@@ -1,10 +1,9 @@
-package github.ormlite;
+package github.encapsulation.ormlite;
 
 import android.content.Context;
 import android.util.Log;
 
 import com.j256.ormlite.dao.Dao;
-import com.j256.ormlite.dao.Dao.CreateOrUpdateStatus;
 import com.j256.ormlite.stmt.DeleteBuilder;
 import com.j256.ormlite.stmt.QueryBuilder;
 

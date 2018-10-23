@@ -5,9 +5,6 @@ import android.content.Context;
 
 import java.util.List;
 
-import github.ormlite.TDao;
-import github.ormlite.User;
-
 public class _Test {
 
     public void test(final Activity activity, final Context context){

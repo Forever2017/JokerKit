@@ -1,4 +1,4 @@
-package github.ormlite;
+package github.encapsulation.ormlite;
 
 
 import com.j256.ormlite.field.DatabaseField;

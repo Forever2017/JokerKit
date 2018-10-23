@@ -87,6 +87,7 @@ public class SdcardUtil {
         }
         return result;
     }
+
     /**
      * 创建 文件夹
      *
@@ -113,21 +114,22 @@ public class SdcardUtil {
         //Log.e(TAG, "create directory [ " + dirPath + " ] failed");
         return false;
     }
+
     /**
      * 创建 文件
      *
      * @param filePath 文件夹路径
-     * @param name    文件名
-     * @param type    文件后缀 （.txt .doc）
+     * @param name     文件名
+     * @param type     文件后缀 （.txt .doc）
      */
-    public static boolean CreateFile(String filePath,String name, String type) {
-        File file = new File(filePath+"/"+name+type);
+    public static boolean CreateFile(String filePath, String name, String type) {
+        File file = new File(filePath + "/" + name + type);
 
         //文件夹不存在
         if (file.exists()) return false;//文件已经存在了
 
         if (file.getPath().endsWith(File.separator)) {// 以 路径分隔符 结束，说明是文件夹
-           // Log.e(TAG, "The file [ " + filePath + " ] can not be a directory");
+            // Log.e(TAG, "The file [ " + filePath + " ] can not be a directory");
             return false;
         }
 

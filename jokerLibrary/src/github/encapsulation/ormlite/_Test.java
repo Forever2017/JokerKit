@@ -1,4 +1,4 @@
-package github.ormlite;
+package github.encapsulation.ormlite;
 
 import android.content.Context;
 

@@ -1,4 +1,4 @@
-package github.switchbutton;
+package github.encapsulation.switchbutton;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;

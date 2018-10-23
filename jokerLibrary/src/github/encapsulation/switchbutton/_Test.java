@@ -1,9 +1,6 @@
-package github.switchbutton;
+package github.encapsulation.switchbutton;
 
 import android.content.Context;
-
-import github.ormlite.TDao;
-import github.ormlite.User;
 
 public class _Test {
 
