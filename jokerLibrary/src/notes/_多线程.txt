@@ -1,0 +1,21 @@
+手记： 1. service虽然运行在后台，但是它在主线程（UI线程）中，所以不能执行耗时操作，需要开子线程.
+
+
+
+1、简单粗暴的开启多线程..
+    new Thread() {
+        @Override
+        public void run() {
+            //简单粗暴的多线程操作... 非UI线程
+        }
+    }.start();
+
+2、直接操作UI线程
+    runOnUiThread(new Runnable() {
+         @Override
+         public void run() {
+              //UI在非UI线程中操作UI线程..
+         }
+    });
+
+3、

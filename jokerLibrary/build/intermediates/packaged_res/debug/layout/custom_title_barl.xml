@@ -16,7 +16,7 @@
         tools:text="标题" />
 
     <ImageButton
-        android:id="@+id/CustomTitleBarlBack"
+        android:id="@+id/CustomTitleBarlLeft"
         android:layout_width="@dimen/length_45"
         android:layout_height="@dimen/length_45"
         android:layout_alignParentLeft="true"

@@ -19,9 +19,9 @@ import joker.kit.base.R;
 public class NormalTitleBar extends RelativeLayout {
 
     protected RelativeLayout mRootView;//整体容器控件
-    protected TextView customTitleBarlTitle;//标题文字控件
-    protected ImageView customTitleBarlBack;//左边按钮控件
-    protected Button customTitleBarlRight;//右边按钮控件
+    protected TextView  customTitleText;//标题文字控件
+    protected ImageView customLeftBut;//左边按钮控件
+    protected Button    customRightBut;//右边按钮控件
 
     protected String mTitle = "";//标题文字
     protected boolean left_visible, right_visible;//按钮是否隐藏或显示
@@ -44,23 +44,19 @@ public class NormalTitleBar extends RelativeLayout {
         doInit(context, attrs);
     }
 
-    protected int setLayoutId() {
-        return R.layout.custom_title_barl;
-    }
-
     @SuppressLint("ResourceAsColor")
     protected void doInit(Context context, AttributeSet attrs) {
         /**布局文件*/
-        LayoutInflater.from(context).inflate(setLayoutId(), this, true);
+        LayoutInflater.from(context).inflate(R.layout.custom_title_barl, this, true);
         /**通过这个方法，将你在atts.xml中定义的declare-styleable的所有属性的值存储到TypedArray中*/
-        TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.Topbar);
+        TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.TitlStyle);
 
 
         /** 从TypedArray中取出对应的值来为要设置的属性赋值*/
-        mTitle = attributes.getString(R.styleable.Topbar_title);
-        left_visible = attributes.getBoolean(R.styleable.Topbar_left_visible, true);
-        right_visible = attributes.getBoolean(R.styleable.Topbar_right_visible, true);
-        titleColor = attributes.getColor(R.styleable.Topbar_titleColor, R.color.cornflowerblue);
+        mTitle = attributes.getString(R.styleable.TitlStyle_title);
+        left_visible = attributes.getBoolean(R.styleable.TitlStyle_left_visible, true);
+        right_visible = attributes.getBoolean(R.styleable.TitlStyle_right_visible, true);
+        titleColor = attributes.getColor(R.styleable.TitlStyle_title_background_color, R.color.cornflowerblue);
 
         /** 获取完TypedArray的值后，一般要调用recyle方法来避免重新创建的时候的错误 */
         recycleAttributeSet(attributes);
@@ -68,22 +64,20 @@ public class NormalTitleBar extends RelativeLayout {
         init();
     }
 
-
     protected void init() {
-        mRootView = (RelativeLayout) findViewById(R.id.mRootView);
-        customTitleBarlTitle = (TextView) mRootView.findViewById(R.id.CustomTitleBarlTitle);
-        customTitleBarlBack = (ImageView) mRootView.findViewById(R.id.CustomTitleBarlBack);
-        customTitleBarlRight = (Button) mRootView.findViewById(R.id.CustomTitleBarlRight);
+        mRootView = findViewById(R.id.mRootView);
+        customTitleText = mRootView.findViewById(R.id.CustomTitleBarlTitle);
+        customLeftBut =  mRootView.findViewById(R.id.CustomTitleBarlLeft);
+        customRightBut = mRootView.findViewById(R.id.CustomTitleBarlRight);
 
-
-        customTitleBarlTitle.setText(mTitle);
-        customTitleBarlBack.setVisibility(left_visible ? View.VISIBLE : View.GONE);
-        customTitleBarlRight.setVisibility(right_visible ? View.VISIBLE : View.GONE);
+        customTitleText.setText(mTitle);
+        customLeftBut.setVisibility(left_visible ? View.VISIBLE : View.GONE);
+        customRightBut.setVisibility(right_visible ? View.VISIBLE : View.GONE);
         mRootView.setBackgroundColor(titleColor);//标题栏背景色
 
         // 按钮的点击事件，不需要具体的实现，
         // 只需调用接口的方法，回调的时候，会有具体的实现
-        customTitleBarlBack.setOnClickListener(new OnClickListener() {
+        customLeftBut.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -92,7 +86,7 @@ public class NormalTitleBar extends RelativeLayout {
             }
         });
 
-        customTitleBarlRight.setOnClickListener(new OnClickListener() {
+        customRightBut.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -128,11 +122,11 @@ public class NormalTitleBar extends RelativeLayout {
     /**对外的方法，想到了慢慢加..*/
     public void setTitle(String title) {
         mTitle = title;
-        customTitleBarlTitle.setText(mTitle);
+        customTitleText.setText(mTitle);
     }
 
     public void setRight(String text) {
-        customTitleBarlRight.setVisibility(View.VISIBLE);
-        customTitleBarlRight.setText(text);
+        customRightBut.setVisibility(View.VISIBLE);
+        customRightBut.setText(text);
     }
 }
