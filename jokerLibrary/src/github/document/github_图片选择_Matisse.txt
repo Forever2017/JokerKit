@@ -1,0 +1,51 @@
+Matisse
+本地图像和视频选择器,知乎使用的图片选择器，支持显示序列号（1,2,3,4）
+https://github.com/zhihu/Matisse
+
+
+1、下载
+    app->
+        repositories {
+            jcenter()
+        }
+
+        dependencies {
+            compile 'com.zhihu.android:matisse:$latest_version' // 目前最高0.5.1
+        }
+
+2、直接在需要调用的地方使用
+         Matisse.from(UploadImageFileActivity.this)
+                //选择图片
+                .choose(MimeType.ofImage())
+
+                //选择照片时，是否显示拍照
+                .capture(true)
+
+                //有序选择图片 123456...
+                .countable(true)
+
+                //最大选择数量为9
+                .maxSelectable(9)
+
+                //过滤器 GifSizeFilter 去demo里面拷贝，也可以自己定
+                .addFilter(new GifSizeFilter(320, 320, 5 * Filter.K * Filter.K))
+
+                //预览图大小 R.dimen.grid_expected_size 值是120dp
+                .gridExpectedSize(getResources().getDimensionPixelSize(R.dimen.grid_expected_size))
+
+                //选择方向
+                .restrictOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)
+
+                //界面中缩略图的质量
+                .thumbnailScale(0.85f)
+
+                //Glide加载方式 加载图片的方式..  和   //Picasso加载方式 加载图片的方式..   2选1
+                .imageEngine(new GlideEngine())  or   .imageEngine(new PicassoEngine())
+
+                //蓝色主题
+                .theme(R.style.Matisse_SinYi)
+
+                //请求码
+                .forResult(TAG_LOCAL);
+
+3、更多功能，用到时添加..

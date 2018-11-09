@@ -1,10 +1,10 @@
-package joker.demo.button;
+package joker.demo.github;
 
 import android.os.Bundle;
 
+import github.encapsulation.switchbutton.SwitchButton;
 import joker.demo.R;
 import joker.kit.base.ActivityJoker;
-import github.switchbutton.SwitchButton;
 
 public class SwitchButtonDemo extends ActivityJoker {
 
