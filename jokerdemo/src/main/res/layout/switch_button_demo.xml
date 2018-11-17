@@ -26,33 +26,33 @@
     <attr name="sb_enable_effect" format="reference|boolean"/>         是否启用特效，默认true-->
 
 
-    <github.switchbutton.SwitchButton
+    <github.encapsulation.switchbutton.SwitchButton
         android:id="@+id/switch_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <github.switchbutton.SwitchButton
+    <github.encapsulation.switchbutton.SwitchButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         app:sb_checked="true" />
 
 
-    <github.switchbutton.SwitchButton
+    <github.encapsulation.switchbutton.SwitchButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         app:sb_checked="true"
         app:sb_show_indicator="false" />
 
-    <github.switchbutton.SwitchButton
+    <github.encapsulation.switchbutton.SwitchButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         app:sb_checked="true"
         app:sb_checked_color="#fdc951" />
 
-    <github.switchbutton.SwitchButton
+    <github.encapsulation.switchbutton.SwitchButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -63,7 +63,7 @@
         app:sb_shadow_color="#A36F95"
         app:sb_uncheckcircle_color="#A36F95" />
 
-    <github.switchbutton.SwitchButton
+    <github.encapsulation.switchbutton.SwitchButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"

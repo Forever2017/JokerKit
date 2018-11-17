@@ -1,0 +1,63 @@
+https://www.jianshu.com/p/7b09cbac1df4
+
+
+### h5跳转链接：
+    <a href="[scheme]://[host]/[path]?[query]"> 唤起应用 </a>
+    说明：scheme （唤起协议）是必须存在的，
+    host（唤起指定host）并且要保证scheme和host和原生应用内是一致的。后面的path（协议路径）和
+    query（参数）可以没有。当然能打开本地app的是需要应用进行对应处理的。
+
+    注：android:scheme定义是一定要采用小写字母，scheme不要包含下划线。
+
+
+#### 在app内的操作是比较简单的，在android中的intent-filter提供了对应的操作：
+    <activity android:name=".H5CallActivity">
+            <intent-filter>
+                    <action android:name="android.intent.action.VIEW" />
+                    <category android:name="android.intent.category.BROWSABLE" />
+                    <category android:name="android.intent.category.DEFAULT" />
+
+                     <data
+                        android:host="app.main"
+                        android:scheme="sinyiapp"/>
+            </intent-filter>
+    </activity>
+
+### APP跳转APP（也可以用来测试）
+    Uri data = Uri.parse("sinyiapp://app.main");
+      Intent intent = new Intent(Intent.ACTION_VIEW,data);
+      //保证新启动的APP有单独的堆栈，如果希望新启动的APP和原有APP使用同一个堆栈则去掉该项
+      intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+      try {
+        startActivityForResult(intent, RESULT_OK);
+      } catch (Exception e) {
+        e.printStackTrace();
+        Toast.makeText(MainActivity.this, "没有匹配的APP，请下载安装",Toast.LENGTH_SHORT).show();
+      }
+
+
+
+问题：
+    注：android:scheme定义是一定要采用小写字母，scheme不要包含下划线。
+
+    1.由scheme导致APP图标消失问题
+    解决：打包安装后出现了APP图标消失问题，是由于同一个intent-filter设置了多个category的原因，解决方法，分两个intent-filter即可：
+            <intent-filter>
+                           <action android:name="android.intent.action.MAIN" />
+                           <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <!--URL Scheme启动-->
+            <intent-filter>
+                <!--必有项-->
+                <action android:name="android.intent.action.VIEW" />
+                <!--如果希望该应用可以通过浏览器的连接启动，则添加该项-->
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!--表示该页面可以被隐式调用，必须加上该项-->
+                <category android:name="android.intent.category.DEFAULT" />
+                <!--协议部分-->
+                <data
+                    android:host="app.main"
+                    android:scheme="sinyiapp"/>
+            </intent-filter>
+
+

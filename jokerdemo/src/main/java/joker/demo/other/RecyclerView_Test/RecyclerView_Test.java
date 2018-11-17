@@ -1,4 +1,4 @@
-package joker.demo.other;
+package joker.demo.other.RecyclerView_Test;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

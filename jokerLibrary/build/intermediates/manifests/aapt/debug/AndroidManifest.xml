@@ -3,7 +3,7 @@
     package="joker.kit.base" >
 
     <uses-sdk
-        android:minSdkVersion="19"
+        android:minSdkVersion="17"
         android:targetSdkVersion="27" />
 
 </manifest>

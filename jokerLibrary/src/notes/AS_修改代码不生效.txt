@@ -1,0 +1,24 @@
+
+
+1.  新版的 Android Studio 引入了 instant run 功能，也就是俗称的热补丁技术，但是热补丁尚有缺陷有时候会出
+    现莫名其妙的失败和错误，这种情况下直接点击 Run 标签下的 Clean and Rerun 就能重新 rebuild 项目。
+    你退出 Android Studio 然后重新进入 Android Studio 实际上也是一个 Rebuild 过程。当然也可以直接禁用
+    Instant Run 功能，在 Setting -> Build、Execution and Deployment -> Instant Run 中取消第一个勾就行
+
+    // 这个没有解决当时的问题..
+
+2.  无意间发现了我的build.gradle里配置的apk打包路径脚本，发现了buildType=’debug’中也配置了路径，恍然大悟！
+    原来我的项目里根据BuildConfiguration.DEBUG来判断采用哪个服务器接口地址（具体参看我的另外一个博客 解决被
+    依赖module中BuildConfig.DEBUG的值总为false问题），平时开发和测试都要用测试环境，所以我给测试发的包也要是debug的，
+    所以这里配置了一个buildType=’debug’的输出路径。那我在as里启动程序的时候是不是就因为我配置了独立的路径导致默认生成
+    的debug包找不到，所以一直用的是老版本的包！想到这里我赶紧把这段代码注释掉，运行项目果然生效了！
+    因为自己的一个疏忽，导致浪费了好长时间在打log，clean，真的很冤！特此记录一下！
+
+    //上面是找到的原话，这边确实是通过输出路径解决的...
+    我直接所有版本更改为...
+        applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    output.outputFile = new File(output.outputFile.parent, "信义e家_v"+ defaultConfig.versionName+".apk");
+                }
+        }
+     这种。。解决了。。 但是还未找到真正的问题所在
