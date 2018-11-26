@@ -1,0 +1,5 @@
+1. xml 显示Design editor is unavailable until a successful build
+    解决：打开该项目，并去Android Studio > Build > Clean Project
+         然后  Android Studio > File > Sync Project with Gradles Files
+
+2.
