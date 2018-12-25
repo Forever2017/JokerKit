@@ -10,4 +10,12 @@
 3、Program type already present: com.j256.ormlite.stmt.QueryBuilder$JoinInfo
  解决：依赖冲突.. https://www.jianshu.com/p/34121823c19e
 
-4、
+4、The project is using an unsupported version of Gradle.
+  Please point to a supported Gradle version in the project's Gradle settings or in the project's Gradle wrapper (if applicable.)
+ 解决：Gradle 与 Gradle plug 设置版本对应即可
+
+5、AS 突然不能多开项目...
+ 解决：Settings -> System Settings -> Project Opening / Open project in new window
+      选择对应的打开方式，这里选择打开新窗口 解决..
+
+6、

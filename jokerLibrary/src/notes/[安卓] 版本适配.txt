@@ -1,0 +1,6 @@
+全面屏适配：
+  全面屏手机大致思路都是压缩额头与下巴，屏幕比例从传统的16：9变为18：9，提高屏占比以及屏   幕内的虚拟导航键。
+ 解决：<meta-data  android:name="android.max_aspect" android:value="2.1" />
+   在应用配置文件AndroidManifest.xml中显式声明支持的最大屏幕高宽比（maximum aspect   ratio） 设置为2.1即可适配一众全面屏手机。
+
+

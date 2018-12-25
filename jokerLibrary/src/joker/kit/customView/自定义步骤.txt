@@ -137,8 +137,9 @@
             customTitleBarlRight.setText(text);
         }
     }
+3、自己写个自定义控件用的布局..
 
-3、然后再我们需要的布局上引入我们的自定义控件。加上  xmlns:app="http://schemas.android.com/apk/res-auto"  就可以用了。
+4、然后再我们需要的布局上引入我们的自定义控件。加上  xmlns:app="http://schemas.android.com/apk/res-auto"  就可以用了。
   home.xml
     <?xml version="1.0" encoding="utf-8"?>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -159,7 +160,7 @@
 
     </LinearLayout>
 
-4、Java类中使用..
+5、Java类中使用..
    home.java
    NormalTitleBar tb = (NormalTitleBar) findViewById(R.id.mNormalTitleBar);
    tb.setOnTopBarClick(new OnTopBarClickListener() {

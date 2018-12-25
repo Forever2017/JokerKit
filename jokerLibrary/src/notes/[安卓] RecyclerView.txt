@@ -1,0 +1,14 @@
+1、当RecyclerView遇到Inconsistency detected崩溃时
+   java.lang.IndexOutOfBoundsException: Inconsistency detected. Invalid view holder adapter positionViewHolder{2064e5c6 position=2 id=-1, oldPos=2, pLpos:-1 scrap [attachedScrap] tmpDetached no parent}
+	解决：方法一
+	自己写一个继承LinearLayoutManager的包装类，在onLayoutChildren()方法里try-catch捕获该异常。
+	@Override
+	public void onLayoutChildren(RecyclerView.Recycler recycler, RecyclerView.State state) {
+		try {
+			super.onLayoutChildren(recycler, state);
+		} catch (IndexOutOfBoundsException e) {
+			e.printStackTrace();
+		}
+	}
+	
+2、

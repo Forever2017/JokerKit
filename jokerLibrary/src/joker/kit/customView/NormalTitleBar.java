@@ -16,7 +16,7 @@ import android.widget.TextView;
 import joker.kit.base.R;
 
 /**
- * 自定义标题栏
+ * 自定义 顶部 标题栏
  * 左键默认显示，默认点击退出
  * 右键默认隐藏
  */
@@ -54,7 +54,7 @@ public class NormalTitleBar extends RelativeLayout {
     protected void doInit(Context context, AttributeSet attrs) {
         this.context = context;
         /**布局文件*/
-        LayoutInflater.from(context).inflate(R.layout.custom_title_barl, this, true);
+        LayoutInflater.from(context).inflate(R.layout.joker_normal_title_barl, this, true);
         /**通过这个方法，将你在atts.xml中定义的declare-styleable的所有属性的值存储到TypedArray中*/
         TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.TitlStyle);
 
@@ -91,23 +91,15 @@ public class NormalTitleBar extends RelativeLayout {
 
         customRightBut.setText(right_text != null && !right_text.equals("") ? right_text : context.getString(R.string.joker_more));
 
-
         // 按钮的点击事件，不需要具体的实现，
         // 只需调用接口的方法，回调的时候，会有具体的实现
         customLeftBut.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                /*if (left_close)
-                    getActivity().finish();
-                else {
-                    if (mListener != null)
-                        mListener.leftClick();
-                }*/
-                if (mListener != null)  mListener.leftClick();
+                if (mListener != null) mListener.leftClick();
 
                 if (left_close) getActivity().finish();
-
             }
         });
 
@@ -161,14 +153,13 @@ public class NormalTitleBar extends RelativeLayout {
 
     private Activity getActivity() {
         Context context;
-        for (context = this.getContext(); !(context instanceof Activity) && context instanceof ContextWrapper; context = ((ContextWrapper) context).getBaseContext()) {
-            ;
+        for (context = this.getContext();
+             !(context instanceof Activity) && context instanceof ContextWrapper; context = ((ContextWrapper) context).getBaseContext()) {;
         }
-
         if (context instanceof Activity) {
             return (Activity) context;
         } else {
-            throw new RuntimeException("Unable to get Activity.Joker 没有找到Activity.");
+            throw new RuntimeException("Unable to get Activity.Joker NormalTitleBar 没有找到Activity.");
         }
     }
 }

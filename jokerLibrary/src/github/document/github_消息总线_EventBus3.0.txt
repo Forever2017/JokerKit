@@ -1,0 +1,37 @@
+
+2.准备订阅者
+
+@Subscribe(threadMode = ThreadMode.MAIN)
+    public void setNumber(String Number) {
+        if (Integer.parseInt(Number) == 0) NavigationNumber.setVisibility(View.GONE);
+        else NavigationNumber.setVisibility(View.VISIBLE);
+
+        NavigationNumber.setText(Number);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onStop() {
+        EventBus.getDefault().unregister(this);
+        super.onStop();
+    }
+
+
+3.发送事件
+
+    EventBus.getDefault().post(new MessageEvent("Hello everyone!"));
+
+
+
+
+问题：org.greenrobot.eventbus.EventBusException: Subscriber class v.xinyi.ui.LaunchActivity and its super classes have no public methods with the @Subscribe annotation
+	
+     解决：在没有@Subscribe注释的订阅者类内，不能设置  EventBus.getDefault().register(this);    EventBus.getDefault	().unregister(this); 需要共存。
+	 
+	 
+	 
