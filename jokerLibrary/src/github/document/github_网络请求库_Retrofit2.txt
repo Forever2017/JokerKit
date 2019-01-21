@@ -22,7 +22,7 @@ http://square.github.io/retrofit/
     - Simple XML: com.squareup.retrofit2:converter-simplexml
     - Scalars: com.squareup.retrofit2:converter-scalars
 
-3、创建JavaBean类（接收返回json数据，与json变量名对应）LoginBean
+3、创建JavaBean类（接收返回json数据，与json变量名对应）LoginBean (List的变量名也要去Json的对应一样)
 
 4、创建interface 服务接口
     public interface ApiInterface {
@@ -33,7 +33,7 @@ http://square.github.io/retrofit/
 5、创建Retrofit
     Retrofit retrofit2 = new Retrofit.Builder()
              .baseUrl("https://api.testurl.cn/")//设置Url 必须以 /（斜线） 结束，不然会抛出一个IllegalArgumentException
-             .client(okHttpClient)
+             //.client(okHttpClient)
               .addConverterFactory(GsonConverterFactory.create())//设置解析器 即上面提到的GsonConverterFactory
              .build();
 

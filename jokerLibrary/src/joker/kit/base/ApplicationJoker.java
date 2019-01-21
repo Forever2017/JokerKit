@@ -7,20 +7,18 @@ import android.content.SharedPreferences.Editor;
 
 public class ApplicationJoker extends Application {
     private static SharedPreferences sp;
+    private boolean IS_FIRST = true;//是否第一次执行
 
-     /**
-
-        <application
-
-            android:name="xxx.xxx.ApplicationJoker"
-
-           // android:allowBackup="true"
-          //  android:icon="@drawable/ic_launcher"
-          //  android:label="@string/app_name"
-          //  android:theme="@style/AppTheme" >
-
-
-      */
+    /**
+     * <application
+     * <p>
+     * android:name="xxx.xxx.ApplicationJoker"
+     * <p>
+     * // android:allowBackup="true"
+     * //  android:icon="@drawable/ic_launcher"
+     * //  android:label="@string/app_name"
+     * //  android:theme="@style/AppTheme" >
+     */
 
     @Override
     public void onCreate() {
@@ -28,19 +26,31 @@ public class ApplicationJoker extends Application {
 
         sp = getSharedPreferences("joker.application", Context.MODE_PRIVATE);
 
+        initialize();
     }
+
+    /**
+     * 暴露接口，执行一些需要初始化的动作
+     */
+    public void initialize() {
+        if (IS_FIRST) IS_FIRST = false;
+        else return;
+    }
+
+
     /**
      * SharedPreferences保存String类型数据
-     * */
-    public static void setSharedString(String name,String vaule){
+     */
+    public static void setSharedString(String name, String vaule) {
         Editor ed = sp.edit();
         ed.putString(name, vaule);
         ed.commit();
     }
+
     /**
      * SharedPreferences保存Int类型数据
-     * */
-    public static void setSharedInt(String name,int vaule){
+     */
+    public static void setSharedInt(String name, int vaule) {
         Editor ed = sp.edit();
         ed.putInt(name, vaule);
         ed.commit();
@@ -48,15 +58,15 @@ public class ApplicationJoker extends Application {
 
     /**
      * SharedPreferences取出String类型数据
-     * */
-    public static String getSharedString(String name){
+     */
+    public static String getSharedString(String name) {
         return sp.getString(name, null);
     }
 
     /**
      * SharedPreferences取出int类型数据
-     * */
-    public static int getSharedInt(String name){
+     */
+    public static int getSharedInt(String name) {
         return sp.getInt(name, 0);
     }
 

@@ -1,0 +1,24 @@
+在Terminal中输入如下指令（keytool -list -v -keystore C:\Users\Administrator.android\debug.keystore）回车。 
+证书路径
+
+
+keytool -v list -keystore C:\Users\admin\.android\debug.keystore
+
+
+signingConfigs {
+        release {
+            keyAlias 'key0'
+            keyPassword '123456'
+            storeFile file('../xin.jks')
+            storePassword 'xin2017'
+            v2SigningEnabled false
+        }
+
+        debug {
+            keyAlias 'key0'
+            keyPassword '123456'
+            storeFile file('../xin.jks')
+            storePassword 'xin2017'
+            v2SigningEnabled false
+        }
+    }

@@ -1,0 +1,14 @@
+
+   http://ormlite.com/releases/
+    https://www.jianshu.com/p/09f4c50c934d
+
+
+    添加如下依赖关系
+    compile 'com.j256.ormlite:ormlite-android:4.48'
+
+
+    //用法
+    TDao<User> tdao = new TDao<User>(context, User.class);
+
+     //直接调用查询
+     tdao.queryAll();

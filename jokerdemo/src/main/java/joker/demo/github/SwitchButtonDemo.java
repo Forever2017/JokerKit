@@ -2,7 +2,7 @@ package joker.demo.github;
 
 import android.os.Bundle;
 
-import github.encapsulation.switchbutton.SwitchButton;
+import ios.imitation.SwitchButton.SwitchButton;
 import joker.demo.R;
 import joker.kit.base.ActivityJoker;
 

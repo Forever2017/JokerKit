@@ -51,10 +51,10 @@ public class RandomUitl {
     }
 
     /**
-     * 产生指定范围的随机整数
+     * 产生指定范围的随机整数(包含指定的数)
      * java.util.Random # nextInt(int)
      */
-	/*public static int randInt(int min, int max) {
+	public static int randInt(int min, int max) {
 
 		// NOTE: Usually this should be a field rather than a method
 		// variable so that it is not re-seeded every call.
@@ -65,7 +65,15 @@ public class RandomUitl {
 		int randomNum = rand.nextInt((max - min) + 1) + min;
 
 		return randomNum;
-	}*/
+	}
 
+    public static void main(String[] args) {
+        for (int i = 0 ; i<10 ; i++) {
+            System.out.println(randInt(0,2));
+        }
+
+
+
+    }
 
 }

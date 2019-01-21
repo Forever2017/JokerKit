@@ -18,4 +18,11 @@
          }
     });
 
-3、
+3、延时启动线程运行..
+    new Handler().postDelayed(new Runnable() {
+        @Override
+        public void run() {
+            startActivity(new Intent(StartActivity.this,Main.class));
+            StartActivity.this.finish();
+        }
+    }, 3000);//延迟3秒

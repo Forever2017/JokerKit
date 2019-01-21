@@ -1,7 +1,26 @@
 
+public class EventBusBean {
+    //小红点设置
+    public static class EventNumber {
+        public int number;
+    }
+
+    //更新房间列表
+    public static class UpdateRoom {
+        public boolean result;
+    }
+
+    //更新系统消息
+    public static class UpdateSystem {
+
+    }
+
+}
+
+
 2.准备订阅者
 
-@Subscribe(threadMode = ThreadMode.MAIN)
+    @Subscribe(threadMode = ThreadMode.MAIN)
     public void setNumber(String Number) {
         if (Integer.parseInt(Number) == 0) NavigationNumber.setVisibility(View.GONE);
         else NavigationNumber.setVisibility(View.VISIBLE);

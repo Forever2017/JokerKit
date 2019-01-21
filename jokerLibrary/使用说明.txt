@@ -26,6 +26,9 @@ build.gradle
 
            【绝对路径】 new File('D:/GitHub/jokerLibrary') 
 
+include ':jokerLibrary'
+project(':jokerLibrary').projectDir = new File('D:\\GitHub\\JokerKit\\jokerLibrary')
+
 ###################################################################
 
 >##  功能类介绍
@@ -70,25 +73,6 @@ build.gradle
 //###########################
 
 * notes	 //备注手记..
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

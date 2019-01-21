@@ -1,0 +1,27 @@
+
+
+1. class
+    XXXX.GetAgentInfo(new AsyncHttp(){
+        @Override
+        public void onSuccess(String arg0) {
+            //得到回调结果
+        }
+    });
+
+
+
+
+
+
+
+
+2. class
+	public static void GetAgentInfo(AsyncHttp Asyn) {
+
+		Asyn.onSuccess("返回结果");
+
+	}
+
+    public static abstract class AsyncHttp{
+            public void onSuccess(String arg0){};
+    }

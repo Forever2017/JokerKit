@@ -1,0 +1,35 @@
+* joker.kit.adapt      //适配
+	* InstallAdapt	APK安装适配..
+
+* joker.kit.base      //基类
+    * FragmentJoker  	//Fragment使用..更方便
+	* ActivityJoker  	//Activity使用..更方便
+	* ApplicationJoker	//Application使用方便..
+
+
+* joker.kit.customView //自定义控件
+	* NormalTitleBar 自定义标题栏
+
+* joker.kit.file //文件操作
+	* SdcardUtil	SD卡操作..
+
+* joker.kit.function //系统功能封装，例如操作软键盘之类的..
+	* KeyboardJoker	软键盘操作
+
+* joker.kit.number //数字相关..算法、随机数啊、时间啊之类的
+	* RandomUitl	随机生成各种数字~
+	* TimeUitl		时间相关，生成时间格式之类的..
+
+
+* joker.kit.permissions //权限相关
+	*	搁浅~
+
+
+* joker.kit.view //系统控件 功能的扩展封装
+	* recyclerview.GridItemDecoration  //（网格布局）设置item的间隔
+	* recyclerview.ListItemDecoration   //List（listView布局）设置item的间隔
+
+
+* joker.kit.utils //其他
+	* ActivityManager  	//管理Activity 全部退出 删除之类的..
+	* LogUtils  //日志控制

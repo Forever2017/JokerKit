@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:background="@color/grey_transparent"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/JokerBottomWindowLinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/length_10"
+            android:layout_marginRight="@dimen/length_10"
+            android:background="@drawable/joker_round_bg"
+            android:orientation="vertical">
+
+
+            <!--<View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="#ececec" />-->
+
+            <!-- <TextView
+                 android:layout_width="match_parent"
+                 android:layout_height="@dimen/length_40"
+                 android:gravity="center"
+                 android:text="选择图片"
+                 android:textColor="#838383"
+                 android:textSize="17sp" />
+             <TextView
+                 android:layout_width="match_parent"
+                 android:layout_height="@dimen/length_40"
+                 android:gravity="center"
+                 android:text="选择图片"
+                 android:textColor="#838383"
+                 android:textSize="17sp" />
+             <TextView
+                 android:layout_width="match_parent"
+                 android:layout_height="@dimen/length_40"
+                 android:gravity="center"
+                 android:text="选择图片"
+                 android:textColor="#838383"
+                 android:textSize="17sp" />
+             <TextView
+                 android:layout_width="match_parent"
+                 android:layout_height="@dimen/length_40"
+                 android:gravity="center"
+                 android:text="选择图片"
+                 android:textColor="#838383"
+                 android:textSize="17sp" />-->
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/JokerBottomWindowClose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/length_10"
+            android:background="@drawable/joker_round_bg"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="#3AC0FA"
+            android:textSize="@dimen/font_size_15" />
+    </LinearLayout>
+
+</RelativeLayout>

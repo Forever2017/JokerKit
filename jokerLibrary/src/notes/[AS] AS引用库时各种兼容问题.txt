@@ -1,0 +1,21 @@
+1、  All com.android.support libraries must use the exact same version specification (mixing versions can lead to
+    runtime crashes). Found versions 27.0.2, 23.2.1. Examples include com.android.support:animated-vector-drawable:27.0.2 and com.android.support:support-v4:23.2.1 less... (Ctrl+F1)
+    解决：1.转到project/.idea/libraries文件系统上的文件夹，查看哪些库不同。
+         2.然后手动引用同版本的库..
+    例如：support现在全是27.0.2 这里错误是有某个库使用了23.2.1，找到以后发现是v4:23.0.2
+         然后直接引用 implementation 'com.android.support:support-v4:27.0.2' 覆盖低版本，问题解决..
+
+
+2、Invoke-customs are only supported starting with Android O (--min-api 26)
+  Message{kind=ERROR, text=Invoke-customs are only supported starting with Android O (--min-api 26), sources=[Unknown source file], tool name=Optional.of(D8)}
+  解决：   如果你的Module 中的build 里面 添加了
+          compileOptions {
+              targetCompatibility 1.8
+              sourceCompatibility 1.8
+          }
+  那么你主工程直接运行会报上述错误, 在主工程的build下面也需要添加 解决。
+
+3、
+
+
+

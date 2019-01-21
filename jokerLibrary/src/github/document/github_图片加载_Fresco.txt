@@ -1,0 +1,69 @@
+Fresco
+用于管理图像及其使用内存的Android库。 https://frescolib.org/
+https://github.com/facebook/fresco
+https://www.fresco-cn.org/docs/getting-started.html
+
+
+1、下载
+    编辑 build.gradle 文件:
+        dependencies {
+          // 其他依赖
+          compile 'com.facebook.fresco:fresco:0.12.0'
+        }
+
+    下面的依赖需要根据需求添加：
+        dependencies {
+          // 在 API < 14 上的机器支持 WebP 时，需要添加
+          compile 'com.facebook.fresco:animated-base-support:0.12.0'
+
+          // 支持 GIF 动图，需要添加
+          compile 'com.facebook.fresco:animated-gif:0.12.0'
+
+          // 支持 WebP （静态图+动图），需要添加
+          compile 'com.facebook.fresco:animated-webp:0.12.0'
+          compile 'com.facebook.fresco:webpsupport:0.12.0'
+
+          // 仅支持 WebP 静态图，需要添加
+          compile 'com.facebook.fresco:webpsupport:0.12.0'
+        }
+
+2、使用 https://www.fresco-cn.org/docs/getting-started.html
+        1.使用之前，必须初始化Fresco类。只需要调用Fresco.initialize一次。在 Application 里面做这件事再适合不过。
+            Fresco.initialize(this);
+        2.各种权限必须齐全..比如网络请求..
+        3. xml文件
+                <LinearLayout
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+
+                    xmlns:fresco="http://schemas.android.com/apk/res-auto"  <-- 首先加入命名空间.
+
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent">
+
+                    <com.facebook.drawee.view.SimpleDraweeView   <-- 最简单的使用
+                        android:id="@+id/my_image_view"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        fresco:placeholderImage="@drawable/my_drawable"
+                      />
+
+
+
+        4.Java文件
+            Uri uri = Uri.parse("https://raw.githubusercontent.com/facebook/fresco/gh-pages/static/logo.png");
+            SimpleDraweeView draweeView = (SimpleDraweeView) findViewById(R.id.my_image_view);
+            draweeView.setImageURI(uri);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
