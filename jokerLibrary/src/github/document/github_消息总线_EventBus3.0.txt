@@ -1,3 +1,11 @@
+EventBus
+适用于Android和Java的事件总线，可简化活动，碎片，线程，服务等之间的通信。减少代码，提高质量。
+https://github.com/greenrobot/EventBus
+
+1、下载
+    app->
+    ### implementation 'org.greenrobot:eventbus:3.1.1'
+
 
 public class EventBusBean {
     //小红点设置

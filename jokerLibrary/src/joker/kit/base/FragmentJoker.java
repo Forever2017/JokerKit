@@ -30,8 +30,14 @@ public abstract class FragmentJoker extends Fragment {
 
     /**
      * 用来做页面操作代码
+     * 会重复加载
      */
     protected abstract void init();
+    /**
+     * 用来做页面操作代码
+     * 只加载一次
+     */
+//    protected abstract void initOnly();
 
     /**
      * 展示等待
