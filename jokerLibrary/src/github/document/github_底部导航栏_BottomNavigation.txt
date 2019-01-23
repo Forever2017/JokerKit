@@ -1,0 +1,108 @@
+BottomNavigation
+此库可帮助用户轻松使用底部导航栏（来自谷歌的新模式），并允许大量自定义
+https://github.com/Ashok-Varma/BottomNavigation
+参数属性：https://github.com/Ashok-Varma/BottomNavigation/wiki/Badges
+
+
+1、下载
+    app->
+    dependencies {
+        compile 'com.ashokvarma.android:bottom-navigation-bar:2.1.0'
+    }
+
+2、xml:
+    <?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <FrameLayout
+                    android:id="@+id/LiveActivityFrameLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+        //导航栏
+        <com.ashokvarma.bottomnavigation.BottomNavigationBar
+            android:id="@+id/LiveActivityBottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom" />
+    </LinearLayout>
+
+3、Java:
+        //定义数字小红点..
+        TextBadgeItem numberBadgeItem = new TextBadgeItem();
+        //定义图标小红点..（固定的图标选中）
+        ShapeBadgeItem shapeBadgeItem = new ShapeBadgeItem();
+
+        bottomNavigationBar
+                //背景显示风格
+                .setMode(BottomNavigationBar.MODE_DEFAULT)
+                //选中图标的颜色（含文字）
+                .setActiveColor(R.color.blueviolet)
+                //未选中图标的颜色（含文字）
+                .setInActiveColor(R.color.gray)
+                //整个导航栏的背景色
+                .setBarBackgroundColor(R.color.white)
+
+                //增加按钮，并设置图标问题自等
+                .addItem(new BottomNavigationItem(R.drawable.ic_home_white_24dp, "Home")
+                        //单独设置按钮的选中与未选中颜色(还有设置图标的方法..)
+                        .setActiveColorResource(R.color.red).setInActiveColorResource(R.color.gray)
+                        //增加数字小红点
+                        .setBadgeItem(numberBadgeItem)
+                )
+                .addItem(new BottomNavigationItem(R.drawable.ic_favorite_white_24dp, "Like")
+                        //增加图标小红点
+                        .setBadgeItem(shapeBadgeItem)
+                )
+                .addItem(new BottomNavigationItem(R.drawable.ic_tv_white_24dp, "Local"))
+                //默认选中哪一项（并不会跳转，只是动画显示到）
+                .setFirstSelectedPosition(0)
+                .initialise();
+
+        //数字小红点的参数设置
+        numberBadgeItem.setBorderWidth(4)
+                .setBackgroundColorResource(R.color.red)
+                .setText("" + 15)
+                .setHideOnSelect(true);
+        //图标小红点的参数设置
+        shapeBadgeItem.setShape(ShapeBadgeItem.SHAPE_HEART)
+                .setShapeColorResource(R.color.red)
+                .setGravity(Gravity.TOP | Gravity.END)
+                .setHideOnSelect(true);
+
+
+    //点击事件，点击显示哪个Fragment
+    bottomNavigationBar.setTabSelectedListener(new BottomNavigationBar.OnTabSelectedListener() {
+                @Override
+                public void onTabSelected(int position) {
+                    switch (position) {
+                        case 0:
+                            getSupportFragmentManager().beginTransaction().replace(R.id.LiveActivityFrameLayout, mHomeFragment).commitAllowingStateLoss();
+                            break;
+                        case 1:
+                            getSupportFragmentManager().beginTransaction().replace(R.id.LiveActivityFrameLayout, mLikeFragment).commitAllowingStateLoss();
+                            break;
+    //                    case 2:
+    //                        getSupportFragmentManager().beginTransaction().replace(R.id.home_activity_frag_container, FragmentOther).commitAllowingStateLoss();
+    //                        break;
+    //                    case 3:
+    //                        getSupportFragmentManager().beginTransaction().replace(R.id.home_activity_frag_container, FragmentOther).commitAllowingStateLoss();
+    //                        break;
+                    }
+                }
+
+                @Override
+                public void onTabUnselected(int position) {
+
+                }
+
+                @Override
+                public void onTabReselected(int position) {
+
+                }
+            });
+
+    //展示哪个Fragment
+    getSupportFragmentManager().beginTransaction().replace(R.id.LiveActivityFrameLayout, mHomeFragment).commitAllowingStateLoss();

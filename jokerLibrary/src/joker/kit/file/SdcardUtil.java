@@ -1,5 +1,6 @@
 package joker.kit.file;
 
+import android.content.Context;
 import android.os.Environment;
 
 import java.io.File;
@@ -12,6 +13,8 @@ import java.util.List;
  */
 public class SdcardUtil {
 /*
+  //6.0和6.0以上，需要手动获取权限!!!!!!!!!!!!!!!!!!!!!!
+
     写 SD 卡的权限：
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     创建/删除文件的权限：
@@ -114,6 +117,26 @@ public class SdcardUtil {
         //Log.e(TAG, "create directory [ " + dirPath + " ] failed");
         return false;
     }
+
+    /*public static boolean FileCreate(Context context, String dirPath) {
+        File cacheDir;
+        // 如果有SD卡则在SD卡中建一个LazyList的目录存放缓存的图片
+        // 没有SD卡就放在系统的缓存目录中
+        if (android.os.Environment.getExternalStorageState().equals(
+                android.os.Environment.MEDIA_MOUNTED))
+            //外置SD卡路径
+            cacheDir = new File(
+                    android.os.Environment.getExternalStorageDirectory(), dirPath);
+        else
+            //系统路径...
+            cacheDir = context.getCacheDir();
+
+        if (!cacheDir.exists())
+            return cacheDir.mkdirs();
+
+        return false;
+    }*/
+
 
     /**
      * 创建 文件

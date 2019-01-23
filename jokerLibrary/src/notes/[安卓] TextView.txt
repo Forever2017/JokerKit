@@ -16,3 +16,8 @@ Java设置字体大小
 
 Java设置文字居中
     TxtTitle.setGravity(Gravity.CENTER);
+
+
+显示一行，且超出自动截断，显示"..."
+    android:singleLine="true"
+    android:ellipsize="end"

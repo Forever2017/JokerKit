@@ -3,5 +3,6 @@
 
     BottomDialog    底部弹出选择框
     SwitchButton    开关选择按钮
+    LoadingDialog   苹果菊花等待加载框..
 
 

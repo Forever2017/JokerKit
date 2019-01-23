@@ -1,0 +1,7 @@
+1、宽度填充全屏
+    1.android:paddingStart="0dp"
+      android:paddingEnd="0dp"
+
+    2.java代码中设置padding setPadding(0,0,0,0)
+
+2、

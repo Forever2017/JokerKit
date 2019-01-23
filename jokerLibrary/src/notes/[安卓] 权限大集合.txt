@@ -401,3 +401,12 @@
 
 95. android.permission.WRITE_SYNC_SETTINGS
     允许程序写入同步设置(Allows applications to write the sync settings)
+
+
+
+    操作内部存储设备文件：
+      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+
+       操作内部存储设备文件：
+      android.permission.WRITE_MEDIA_STORAGE

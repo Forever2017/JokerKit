@@ -1,0 +1,35 @@
+
+####### 属性大全 ##########
+1.相对于父布局
+android:layout_centerVertical="true"//设置是否相对于父布局垂直居中
+android:layout_centerHorizontal="true"//设置是否相对于父布局水平居中
+android:layout_centerInParent="true"//设置是否相对于父布局居中（水平和垂直都有）
+
+android:layout_alignParentTop="true"//设置是否紧贴父布局的顶部，即设置在父布局的顶部
+android:layout_alignParentBottom="true"//设置是否紧贴父布局的底部，即设置在父布局的底部
+android:layout_alignParentRight="true"//设置是否紧贴父布局的右侧，即设置在父布局的右侧
+android:layout_alignParentLeft="true"//设置是否紧贴父布局的左侧，即设置在父布局的左侧
+适配Api17的RTL布局：这里有RTL布局的详细说明
+android:layout_alignParentStart="true"//设置是否紧贴父布局开始的位置
+android:layout_alignParentEnd="true"//设置是否紧贴父布局结束的位置
+
+
+2.相对于其他的子控件
+
+android:layout_above="@+id/xxx"//位于某个id的控件的上方
+android:layout_below="@+id/xxx"//位于某个id的控件的下方
+android:layout_toLeftOf="@+id/xxx"//位于某个id的控件的左侧
+android:layout_toRightOf="@+id/xxx"//位于某个id的控件的右侧
+
+android:layout_alignTop="@+id/xxx"//设置和某个id的控件的上方位于一条线上
+android:layout_alignBottom="@+id/xxx"//设置和某个id的控件的下方位于一条线上
+android:layout_alignLeft="@+id/xxx"//设置和某个id的控件的左侧位于一条线上
+android:layout_alignRight="@+id/xxx"//设置和某个id的控件的右侧位于一条线上
+适配Api17的RTL布局:
+android:layout_toStartOf="@+id/xxx"//设置位于某个id控件的开始位置
+android:layout_toEndOf="@+id/xxx"//设置位于某个id控件的结束位置
+
+android:layout_alignStart="@+id/xxx"//设置和某个id的控件的开始位置位于一条线上
+android:layout_alignEnd="@+id/xxx" //设置和某个id的控件的结束位置位于一条线上
+
+3.其他属性android:layout_alignWithParentIfMissing="true"// 如果找不到其他子控件，就相对于父控件布局是不是觉得每个子控件都要设置属性很麻烦？在RelativeLayout中也有：android:gravity="center_horizontal|bottom"//设置内部子控件的显示位置，居中，上下左右都可以当然它还提供了一个方法，如果你不想某个子控件不受RelativeLayout的控制：android:ignoreGravity="@id/xxx"//传入子控件的id

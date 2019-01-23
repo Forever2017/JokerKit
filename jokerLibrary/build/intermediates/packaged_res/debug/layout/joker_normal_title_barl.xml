@@ -26,7 +26,7 @@
         android:paddingLeft="@dimen/length_15"
         android:paddingRight="@dimen/length_15"
         android:paddingTop="@dimen/length_15"
-        android:src="@drawable/ico_back_joker" />
+        android:src="@drawable/ico_joker_back" />
 
     <Button
         android:id="@+id/CustomTitleBarlRight"

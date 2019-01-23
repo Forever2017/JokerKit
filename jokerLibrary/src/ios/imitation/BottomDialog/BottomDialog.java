@@ -116,7 +116,8 @@ public class BottomDialog {
 
     public static abstract class JokerItemOnClick {
 
-        public void ItemOnClick(View view){}
+        public void ItemOnClick(View view) {
+        }
 
     }
 
@@ -124,6 +125,7 @@ public class BottomDialog {
     private PopupWindow mPopupWindow;
     private LinearLayout JokerBottomWindowLinear;
     private TextView JokerBottomWindowClose;
+
     public void show() {
         View contentView = mActivity.getLayoutInflater().inflate(R.layout.joker_bottom_window, null);
 

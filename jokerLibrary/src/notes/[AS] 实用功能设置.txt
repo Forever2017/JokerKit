@@ -1,0 +1,7 @@
+1、查看方法注释
+    1.鼠标光标停在方法处 按 Ctrl+Q 键
+    2.鼠标放到方法上自动弹出注释。Setting—General—(勾选)Show quick doc on mouse move delay项即可。
+
+2、
+3、
+4、

@@ -5,27 +5,19 @@ import android.content.Context;
 public class _Test {
 
     public void test(Context context) {
-       /* new BottomDialog
-                .builder()
-                .setTitle("标题内容")
-                .setCancelable(true)
-                .setCanceledOnTouchOutside(true)
-                .addSheetItem("清空消息列表", ActionSheetDialog.SheetItemColor.Red
-                        , new ActionSheetDialog.OnSheetItemClickListener() {
-                            @Override
-                            public void onClick(int which) {
-                                //填写事件
-                            }
-                        }).show();*/
-
         /*new BottomDialog.Builder()
                 .setTitle("标题")
-               // .setContext(context)
-                .setActivity(this)
+                .setActivity(MainActivity.this)
+                .setmHeight(40)
+                .setmTextSize(16)
                 .build()
-                .addSheetItem()
-                .addSheetItem()
-                .addSheetItem()
+                .addSheetItem(new BottomDialog.SheetItemBean("上传图片", 16, R.color.green, new BottomDialog.JokerItemOnClick() {
+                    @Override
+                    public void ItemOnClick(View view) {
+                        super.ItemOnClick(view);
+                        Toast("点击上传图片！");
+                    }
+                }))
                 .show();*/
     }
 }

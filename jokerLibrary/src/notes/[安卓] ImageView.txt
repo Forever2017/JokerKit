@@ -1,0 +1,9 @@
+1、scaleType属性
+    matrix //从左上角开始，原始大小，多余裁剪
+    fitXY  //不管比例的强行全面铺满
+    fitStart //居左，等比例（取宽和高的最小值）显示
+    fitCenter //居中，等比例（取宽和高的最小值）显示
+    center //居中，原始大小，多余裁剪
+
+    centerCrop  //按比例缩放原图，使得可以将ImageView填充满，同时将多余的宽或者高剪裁掉
+    centerInsid //centerInside的目标是将原图完整的显示出来，故按比例缩放原图，使得ImageView可以将原图完整显示

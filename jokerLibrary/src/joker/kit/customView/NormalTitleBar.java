@@ -144,6 +144,11 @@ public class NormalTitleBar extends RelativeLayout {
         mTitle = title;
         customTitleText.setText(mTitle);
     }
+    public void setTitleBackground(int color) {
+        titleColor = color;
+        //标题栏背景色
+        mRootView.setBackgroundResource(titleColor);
+    }
 
     public void setRight(String text) {
         customRightBut.setVisibility(View.VISIBLE);
@@ -154,7 +159,8 @@ public class NormalTitleBar extends RelativeLayout {
     private Activity getActivity() {
         Context context;
         for (context = this.getContext();
-             !(context instanceof Activity) && context instanceof ContextWrapper; context = ((ContextWrapper) context).getBaseContext()) {;
+             !(context instanceof Activity) && context instanceof ContextWrapper; context = ((ContextWrapper) context).getBaseContext()) {
+            ;
         }
         if (context instanceof Activity) {
             return (Activity) context;

@@ -1,0 +1,5 @@
+1、设置控件透明度
+    text.getBackground().setAlpha(12);
+    <TextView ... android:alpha="0.5"  .../>
+
+2、

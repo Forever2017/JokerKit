@@ -151,4 +151,8 @@
     <color name="grey_transparent">#40808080</color><!--透明灰色 -->
     <color name="slateblue_transparent">#406a5acd</color><!--透明粉色 -->
 
+    <!--网易云音乐-->
+    <color name="wy_music_red">#DB4139</color><!--网易云音乐 红 -->
+    <color name="wy_music_grey">#dcdcdc</color><!--网易云音乐 浅灰 -->
+
 </resources>
