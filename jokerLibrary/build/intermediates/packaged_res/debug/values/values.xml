@@ -182,7 +182,13 @@
     <dimen name="length_70">70dip</dimen>
     <dimen name="length_80">80dip</dimen>
     <dimen name="length_90">90dip</dimen>
+    <string name="joker_cancel">取消</string>
+    <string name="joker_determine">确定</string>
     <string name="joker_more">更多</string>
+    <style name="JokerFadeAnimation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/joker_fade_in</item>
+        <item name="android:windowExitAnimation">@anim/joker_fade_out</item>
+    </style>
     <style name="joker_custom_dialog_style" parent="android:style/Theme.Dialog">
         <!--背景颜色及和透明程度-->
         <item name="android:windowBackground">@android:color/transparent</item>

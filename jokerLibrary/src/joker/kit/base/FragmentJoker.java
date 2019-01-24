@@ -14,13 +14,8 @@ import ios.imitation.LoadingDialog.LoadingDialog;
 public abstract class FragmentJoker extends Fragment {
     private static final String TAG = "FragmentJoker";
     private LoadingDialog mLoadingDialog;//仿IOS菊花等待框..
-
     public View viewJoker;
     public Activity activityJoker;
-    /**
-     * 是否当前显示页
-     */
-    public boolean IS_VISIBLE;
 
 
     /**
@@ -30,14 +25,14 @@ public abstract class FragmentJoker extends Fragment {
 
     /**
      * 用来做页面操作代码
-     * 会重复加载
      */
     protected abstract void init();
+
     /**
-     * 用来做页面操作代码
-     * 只加载一次
+     * 每次重新可见时都会执行，用来做需要刷新数据的方法..
      */
-//    protected abstract void initOnly();
+    protected abstract void repeat();
+
 
     /**
      * 展示等待
@@ -80,24 +75,14 @@ public abstract class FragmentJoker extends Fragment {
         return viewJoker;
     }
 
-
-    /**
-     * 页面重新可见时做的操作
-     */
-    public void qryDataFromServer() {
-    }
-
-    /*########  系统方法 ###########*/
     @Override
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        super.setUserVisibleHint(isVisibleToUser);
-        if (isVisibleToUser) {
-            //fragment可见时执行加载数据或者进度条等
-            qryDataFromServer();
-            IS_VISIBLE = true;
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if (hidden) {
+            //Fragment隐藏时调用
         } else {
-            //不可见时不执行操作
-            IS_VISIBLE = false;
+            //Fragment显示时调用
+            repeat();
         }
     }
 

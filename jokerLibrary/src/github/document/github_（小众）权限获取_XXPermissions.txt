@@ -1,0 +1,4 @@
+XXPermissions
+Android 6.0权限适配框架
+https://github.com/getActivity/XXPermissions
+

@@ -34,4 +34,10 @@
         <item name="android:backgroundDimEnabled">false</item>
     </style>
 
+    <!--Dialog弹出关闭动画-->
+    <style name="JokerFadeAnimation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/joker_fade_in</item>
+        <item name="android:windowExitAnimation">@anim/joker_fade_out</item>
+    </style>
+
 </resources>

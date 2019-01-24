@@ -25,6 +25,7 @@ public class SdcardUtil {
         File.isDirectory()
 */
 
+
     /**
      * 判断路径（文件夹）是否存在
      */
@@ -118,26 +119,6 @@ public class SdcardUtil {
         return false;
     }
 
-    /*public static boolean FileCreate(Context context, String dirPath) {
-        File cacheDir;
-        // 如果有SD卡则在SD卡中建一个LazyList的目录存放缓存的图片
-        // 没有SD卡就放在系统的缓存目录中
-        if (android.os.Environment.getExternalStorageState().equals(
-                android.os.Environment.MEDIA_MOUNTED))
-            //外置SD卡路径
-            cacheDir = new File(
-                    android.os.Environment.getExternalStorageDirectory(), dirPath);
-        else
-            //系统路径...
-            cacheDir = context.getCacheDir();
-
-        if (!cacheDir.exists())
-            return cacheDir.mkdirs();
-
-        return false;
-    }*/
-
-
     /**
      * 创建 文件
      *
@@ -178,6 +159,18 @@ public class SdcardUtil {
             return false;
         }
 
+        return false;
+    }
+
+
+    /**
+     * 删除 文件
+     */
+    public static boolean deleteFile(String filePath) {
+        File file = new File(filePath);
+        if (file.isFile() && file.exists()) {
+            return file.delete();
+        }
         return false;
     }
 
