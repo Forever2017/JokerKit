@@ -1,6 +1,9 @@
 package joker.kit.file;
 
+import android.app.DownloadManager;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.net.Uri;
 import android.os.Environment;
 
 import java.io.BufferedInputStream;
@@ -15,6 +18,7 @@ public class DownloadFile {
     /**
      * 下载文件 小文件~
      * 不可以在主线程运行哟~
+     *
      * @param mUrl     下载路径
      * @param sdFile   存放SD卡的路径
      * @param fileName 文件名 xxx.jpg
@@ -55,6 +59,33 @@ public class DownloadFile {
         } else {
             throw new IOException("未发现有SD卡");
         }
+    }
+
+    /**
+     * Android自定的下载管理（会在notification 显示下载的进度，同时可以暂停、重新连接等）
+     *
+     * @param mUrl     下载路径(这里不需要绝对路径 直接根目录起.../Joker/live/image/ )
+     * @param sdFile   存放SD卡的路径
+     * @param fileName 文件名 xxx.jpg
+     *
+     *  相关技术帖子
+     *  https://my.oschina.net/zbj1618/blog/1536946
+     */
+    public static void downloadFile(Context context, String mUrl, String sdFile, String fileName) {
+
+        //创建下载任务,downloadUrl就是下载链接
+        DownloadManager.Request request = new DownloadManager.Request(Uri.parse(mUrl));
+        /*
+         * 指定下载路径和下载文件名
+         * /Joker/live/image/
+         * 这里Joker就会直接是根目录
+         * */
+        request.setDestinationInExternalPublicDir(sdFile, fileName);
+
+        //获取下载管理器
+        DownloadManager downloadManager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
+        //将下载任务加入下载队列，否则不会进行下载
+        downloadManager.enqueue(request);
     }
 
 }

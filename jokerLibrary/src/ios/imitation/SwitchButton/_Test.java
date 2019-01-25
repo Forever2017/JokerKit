@@ -6,7 +6,7 @@ public class _Test {
 
     public void test(Context context){
 /*      xml:
-        <github.switchbutton.SwitchButton
+        <ios.imitation.SwitchButton
             android:id="@+id/switch_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
