@@ -58,6 +58,7 @@
     <color name="greenyellow">#adff2f</color>
     <color name="grey">#808080</color>
     <color name="grey_transparent">#40808080</color>
+    <color name="grey_transparent_75">#75808080</color>
     <color name="honeydew">#f0fff0</color>
     <color name="hotpink">#ff69b4</color>
     <color name="indianred">#cd5c5c</color>
@@ -190,30 +191,30 @@
         <item name="android:windowExitAnimation">@anim/joker_fade_out</item>
     </style>
     <style name="joker_custom_dialog_style" parent="android:style/Theme.Dialog">
-        <!--背景颜色及和透明程度-->
+        
         <item name="android:windowBackground">@android:color/transparent</item>
-        <!--是否去除标题 -->
+        
         <item name="android:windowNoTitle">true</item>
-        <!--是否去除边框-->
+        
         <item name="android:windowFrame">@null</item>
-        <!--是否浮现在activity之上-->
+        
         <item name="android:windowIsFloating">true</item>
-        <!--是否模糊-->
+        
         <item name="android:backgroundDimEnabled">false</item>
     </style>
     <style name="joker_style_not_title" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!--属性详解：https://www.jianshu.com/p/c7bab1cbc9b4-->
+        
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <!--默认全部界面背景色（未设定的默认颜色）-->
+        
         <item name="android:windowBackground">@color/gainsboro</item>
-        <!--设置透明属性(防止启动时候的闪屏)-->
+        
         <item name="android:windowIsTranslucent">true</item>
     </style>
     <style name="popupwindow_anim_style">
-        <!-- 指定显示的动画xml -->
+        
         <item name="android:windowEnterAnimation">@anim/show_from_bottom_joker</item>
-        <!-- 指定消失的动画xml -->
+        
         <item name="android:windowExitAnimation">@anim/hide_to_bottom_joker</item>
     </style>
 </resources>

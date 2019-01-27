@@ -47,6 +47,10 @@ public class TimeUitl {
         return String.valueOf(new Date().getTime() / 1000);
     }
 
+    public static void main(String[] args) {
+//        System.out.println(Double.parseDouble("1230000.00"));
+        System.out.println(TimeLongTen());
+    }
 }
 
 

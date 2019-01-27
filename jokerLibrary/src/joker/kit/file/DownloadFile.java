@@ -64,7 +64,7 @@ public class DownloadFile {
     /**
      * Android自定的下载管理（会在notification 显示下载的进度，同时可以暂停、重新连接等）
      *
-     * @param mUrl     下载路径(这里不需要绝对路径 直接根目录起.../Joker/live/image/ )
+     * @param mUrl     下载路径(这里不需要绝对路径 直接根目录起.../Joker/live/image/  方法里做了截取操作 )
      * @param sdFile   存放SD卡的路径
      * @param fileName 文件名 xxx.jpg
      *
@@ -80,7 +80,7 @@ public class DownloadFile {
          * /Joker/live/image/
          * 这里Joker就会直接是根目录
          * */
-        request.setDestinationInExternalPublicDir(sdFile, fileName);
+        request.setDestinationInExternalPublicDir(sdFile.replace(SdcardUtil.sdFile(),""), fileName);
 
         //获取下载管理器
         DownloadManager downloadManager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
