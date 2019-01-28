@@ -6,6 +6,9 @@ import android.view.View;
 
 /**
  * GridLayoutManager（网格布局）设置item的间隔
+ * * <p>
+ *  * // 设置Item之间间隔样式
+ *  * RecyclerView.addItemDecoration(new GridItemDecoration(2,5,true));
  */
 public class GridItemDecoration extends RecyclerView.ItemDecoration {
 
