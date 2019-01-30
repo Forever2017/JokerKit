@@ -3,11 +3,14 @@ package joker.kit.file;
 import android.app.DownloadManager;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Environment;
+import android.provider.MediaStore;
 
 import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -67,9 +70,9 @@ public class DownloadFile {
      * @param mUrl     下载路径(这里不需要绝对路径 直接根目录起.../Joker/live/image/  方法里做了截取操作 )
      * @param sdFile   存放SD卡的路径
      * @param fileName 文件名 xxx.jpg
-     *
-     *  相关技术帖子
-     *  https://my.oschina.net/zbj1618/blog/1536946
+     *                 <p>
+     *                 相关技术帖子
+     *                 https://my.oschina.net/zbj1618/blog/1536946
      */
     public static void downloadFile(Context context, String mUrl, String sdFile, String fileName) {
 
@@ -80,12 +83,31 @@ public class DownloadFile {
          * /Joker/live/image/
          * 这里Joker就会直接是根目录
          * */
-        request.setDestinationInExternalPublicDir(sdFile.replace(SdcardUtil.sdFile(),""), fileName);
+        request.setDestinationInExternalPublicDir(sdFile.replace(SdcardUtil.sdFile(), ""), fileName);
 
         //获取下载管理器
         DownloadManager downloadManager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
         //将下载任务加入下载队列，否则不会进行下载
         downloadManager.enqueue(request);
+    }
+
+
+    /**
+     * 下载的图片插入到系统图库
+     */
+    public static void saveSystemImg(Context mContext, File mFile) {
+        //把文件插入到系统图库
+        try {
+            MediaStore.Images.Media.insertImage(mContext.getContentResolver(),
+                    mFile.getAbsolutePath(), mFile.getName(), null);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        //保存图片后发送广播通知更新数据库
+        Uri uri = Uri.fromFile(mFile);
+        mContext.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, uri));
+
     }
 
 }
