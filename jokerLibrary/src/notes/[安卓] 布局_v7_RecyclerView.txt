@@ -1,0 +1,87 @@
+﻿1、当RecyclerView遇到Inconsistency detected崩溃时
+   java.lang.IndexOutOfBoundsException: Inconsistency detected. Invalid view holder adapter positionViewHolder{2064e5c6 position=2 id=-1, oldPos=2, pLpos:-1 scrap [attachedScrap] tmpDetached no parent}
+	解决：方法一
+	自己写一个继承LinearLayoutManager的包装类，在onLayoutChildren()方法里try-catch捕获该异常。
+	@Override
+	public void onLayoutChildren(RecyclerView.Recycler recycler, RecyclerView.State state) {
+		try {
+			super.onLayoutChildren(recycler, state);
+		} catch (IndexOutOfBoundsException e) {
+			e.printStackTrace();
+		}
+	}
+	
+2、
+
+
+
+##############  简单使用    ##############
+xml:
+    <android.support.v7.widget.RecyclerView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recycler_view"/>
+
+activity:
+     @InjectView(R.id.recycler_view)
+     RecyclerView mRecyclerView;
+
+	//设置布局管理器
+     mRecyclerView.setLayoutManager(new LinearLayoutManager(this));//这里用线性显示 类似于listview
+     //mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));//这里用线性宫格显示 类似于grid view
+     //mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, OrientationHelper.VERTICAL));//这里用线性宫格显示 类似于瀑布流
+	
+	//设置adapter
+	mRecyclerView.setAdapter(adapter)
+	
+	//设置Item增加、移除动画
+	mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+	
+	//添加分割线
+	mRecyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.HORIZONTAL_LIST));
+	
+
+Adapter适配器：
+    public class ChooseAreaAdapter extends RecyclerView.Adapter<ChooseAreaAdapter.ChooseAreaViewHolder> {
+    private final LayoutInflater mLayoutInflater;
+    List<BaseBean> mList;
+
+    public ChooseAreaAdapter(Context context, List<BaseBean> mList) {
+        this.mList = mList;
+        mLayoutInflater = LayoutInflater.from(context);
+    }
+
+    @Override
+    public ChooseAreaViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        ChooseAreaViewHolder holder = new ChooseAreaViewHolder(
+                mLayoutInflater.inflate(R.layout.item_base, parent, false)
+        );
+        return holder;
+    }
+
+    @Override
+    public void onBindViewHolder(ChooseAreaViewHolder holder, int position) {
+        holder.ItemName.setText(mList.get(position).getName());
+      //  holder.ItemId.setText(mList.get(position).getId());
+    }
+
+    @Override
+    public int getItemCount() {
+        return mList.size();
+    }
+
+    class ChooseAreaViewHolder extends RecyclerView.ViewHolder {
+
+        TextView ItemName, ItemId;
+
+        public ChooseAreaViewHolder(View view) {
+            super(view);
+            ItemId = (TextView) view.findViewById(R.id.ItemBaseId);
+            ItemName = (TextView) view.findViewById(R.id.ItemBaseName);
+        }
+    }
+
+
+}
+

@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import ios.imitation.BottomDialog.BottomDialog;
 import joker.demo.R;
+import joker.demo.github.SmartRefreshLayoutDeam;
 import joker.demo.github.SwitchButtonDemo;
 import joker.kit.base.ActivityJoker;
 import joker.kit.function.ClipboardManagerJoker;
@@ -17,13 +18,21 @@ import joker.kit.function.ClipboardManagerJoker;
 public class MainActivity extends ActivityJoker {
     ClipboardManagerJoker cmj;
 
-    Button but;
+    Button but, test;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
         but = findViewById(R.id.but);
+        test = findViewById(R.id.test);
+        test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, SmartRefreshLayoutDeam.class));
+            }
+        });
+
         but.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

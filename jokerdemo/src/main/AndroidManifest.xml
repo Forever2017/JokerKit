@@ -38,6 +38,7 @@
 
 
         <activity android:name=".github.SwitchButtonDemo"></activity>
+        <activity android:name=".github.SmartRefreshLayoutDeam"></activity>
 
         <activity android:name=".other.RecyclerView_Test.MainActivity_Recycler"></activity>
 

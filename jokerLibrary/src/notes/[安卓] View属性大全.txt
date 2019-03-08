@@ -2,4 +2,5 @@
     text.getBackground().setAlpha(12);
     <TextView ... android:alpha="0.5"  .../>
 
-2、
+2、代码设置背景色
+	setBackgroundColor(getResources().getColor(R.color.cornflowerblue));

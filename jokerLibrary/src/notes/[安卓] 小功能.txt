@@ -1,0 +1,2 @@
+去掉HTML里面的标签
+	Html.fromHtml(mString).toString();

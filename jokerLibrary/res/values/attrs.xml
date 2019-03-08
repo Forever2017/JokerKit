@@ -2,7 +2,7 @@
 <resources>
 
 
-    <declare-styleable name="TitlStyle">
+    <declare-styleable name="TitlStyleJoker">
         <!--标题栏背景色-->
         <attr name="title_background_color" format="color"></attr>
         <!--标题栏文字-->

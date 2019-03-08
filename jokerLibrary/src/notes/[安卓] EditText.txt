@@ -15,3 +15,33 @@
      代码：et_lxnr.setKeyListener(DigitsKeyListener.getInstance(“123456xyz”);
      xml：android:digits="@string/input_num_character"
 
+
+	 
+	 
+	 
+输入内容变化 的监听
+	 1、ClassDemo extends Activity implements TextWatcher {	
+	 
+	 2、editText.addTextChangedListener(new TextWatcher() {
+        
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            // 输入的内容变化的监听
+            Log.e("输入过程中执行该方法", "文字变化");
+        }
+        
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count,
+                int after) {
+            // 输入前的监听
+            Log.e("输入前确认执行该方法", "开始输入");
+            
+        }
+        
+        @Override
+        public void afterTextChanged(Editable s) {
+            // 输入后的监听
+            Log.e("输入结束执行该方法", "输入结束");
+            
+        }
+    });
