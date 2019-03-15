@@ -1735,18 +1735,18 @@ int styleable TextAppearance_android_textStyle 9
 int styleable TextAppearance_android_typeface 10
 int styleable TextAppearance_fontFamily 11
 int styleable TextAppearance_textAllCaps 12
-int[] styleable TitlStyle { 0x7f040090, 0x7f040091, 0x7f040092, 0x7f040093, 0x7f0400bd, 0x7f0400be, 0x7f0400bf, 0x7f040105, 0x7f04010f, 0x7f040110, 0x7f040111 }
-int styleable TitlStyle_left_close 0
-int styleable TitlStyle_left_text 1
-int styleable TitlStyle_left_text_color 2
-int styleable TitlStyle_left_visible 3
-int styleable TitlStyle_right_text 4
-int styleable TitlStyle_right_text_color 5
-int styleable TitlStyle_right_visible 6
-int styleable TitlStyle_title 7
-int styleable TitlStyle_title_background_color 8
-int styleable TitlStyle_title_text_color 9
-int styleable TitlStyle_title_text_size 10
+int[] styleable TitlStyleJoker { 0x7f040090, 0x7f040091, 0x7f040092, 0x7f040093, 0x7f0400bd, 0x7f0400be, 0x7f0400bf, 0x7f040105, 0x7f04010f, 0x7f040110, 0x7f040111 }
+int styleable TitlStyleJoker_left_close 0
+int styleable TitlStyleJoker_left_text 1
+int styleable TitlStyleJoker_left_text_color 2
+int styleable TitlStyleJoker_left_visible 3
+int styleable TitlStyleJoker_right_text 4
+int styleable TitlStyleJoker_right_text_color 5
+int styleable TitlStyleJoker_right_visible 6
+int styleable TitlStyleJoker_title 7
+int styleable TitlStyleJoker_title_background_color 8
+int styleable TitlStyleJoker_title_text_color 9
+int styleable TitlStyleJoker_title_text_size 10
 int[] styleable Toolbar { 0x010100af, 0x01010140, 0x7f04003e, 0x7f040048, 0x7f040049, 0x7f040057, 0x7f040058, 0x7f040059, 0x7f04005a, 0x7f04005b, 0x7f04005c, 0x7f04009f, 0x7f0400a0, 0x7f0400a1, 0x7f0400a4, 0x7f0400a5, 0x7f0400b1, 0x7f0400e7, 0x7f0400e8, 0x7f0400e9, 0x7f040105, 0x7f040106, 0x7f040107, 0x7f040108, 0x7f040109, 0x7f04010a, 0x7f04010b, 0x7f04010c, 0x7f04010d }
 int styleable Toolbar_android_gravity 0
 int styleable Toolbar_android_minHeight 1

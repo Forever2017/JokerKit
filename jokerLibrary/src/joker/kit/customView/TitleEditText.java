@@ -41,10 +41,10 @@ public class TitleEditText extends EditText {
     protected void doInit(Context context, AttributeSet attrs) {
         this.context = context;
         /**通过这个方法，将你在atts.xml中定义的declare-styleable的所有属性的值存储到TypedArray中*/
-        TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.TitlStyle);
+        TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.TitlStyleJoker);
 
         /** 从TypedArray中取出对应的值来为要设置的属性赋值*/
-        left_text = attributes.getString(R.styleable.TitlStyle_left_text);
+        left_text = attributes.getString(R.styleable.TitlStyleJoker_left_text);
 
         /** 获取完TypedArray的值后，一般要调用recyle方法来避免重新创建的时候的错误 */
         recycleAttributeSet(attributes);

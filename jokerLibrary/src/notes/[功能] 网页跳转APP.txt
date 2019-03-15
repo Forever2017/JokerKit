@@ -1,15 +1,20 @@
+URL Scheme使用
 https://www.jianshu.com/p/7b09cbac1df4
 
 
 ### h5跳转链接：
     <a href="[scheme]://[host]/[path]?[query]"> 唤起应用 </a>
+	//sinyiapp://app.main
     说明：scheme （唤起协议）是必须存在的，
     host（唤起指定host）并且要保证scheme和host和原生应用内是一致的。后面的path（协议路径）和
     query（参数）可以没有。当然能打开本地app的是需要应用进行对应处理的。
 
     注：android:scheme定义是一定要采用小写字母，scheme不要包含下划线。
-
-
+  
+	/[path]   可以单独不需要
+	
+	
+	
 #### 在app内的操作是比较简单的，在android中的intent-filter提供了对应的操作：
     <activity android:name=".H5CallActivity">
             <intent-filter>
@@ -20,11 +25,17 @@ https://www.jianshu.com/p/7b09cbac1df4
                      <data
                         android:host="app.main"
                         android:scheme="sinyiapp"/>
+						
+					<data android:scheme="xl" 
+						android:host="goods" 
+						android:path="/goodsDetail" 
+						android:port="8888"/>
+						
             </intent-filter>
     </activity>
-
+	
 ### APP跳转APP（也可以用来测试）
-    Uri data = Uri.parse("sinyiapp://app.main");
+	  Uri data = Uri.parse("sinyiapp://app.main");
       Intent intent = new Intent(Intent.ACTION_VIEW,data);
       //保证新启动的APP有单独的堆栈，如果希望新启动的APP和原有APP使用同一个堆栈则去掉该项
       intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -35,6 +46,48 @@ https://www.jianshu.com/p/7b09cbac1df4
         Toast.makeText(MainActivity.this, "没有匹配的APP，请下载安装",Toast.LENGTH_SHORT).show();
       }
 
+### 传递参数
+	xml:
+	  <!--协议部分-->
+      <data android:scheme="sinyi"
+		  android:host="detail"
+		  android:pathPrefix="/second"/>
+	html：	  
+	sinyi://detail/second?roomId=13088"	 
+	
+	eg:roomId=13088参数随便写...代码中获取就行了
+	  
+### 获取URL附带的参数
+	Uri uri = getIntent().getData();
+	if (uri != null) {
+		// 完整的url信息
+		String url = uri.toString();
+		Log.e(TAG, "url: " + uri);
+		// scheme部分
+		String scheme = uri.getScheme();
+		Log.e(TAG, "scheme: " + scheme);
+		// host部分
+		String host = uri.getHost();
+		Log.e(TAG, "host: " + host);
+		//port部分
+		int port = uri.getPort();
+		Log.e(TAG, "host: " + port);
+		// 访问路劲
+		String path = uri.getPath();
+		Log.e(TAG, "path: " + path);
+		List<String> pathSegments = uri.getPathSegments();
+		// Query部分
+		String query = uri.getQuery();
+		Log.e(TAG, "query: " + query);
+		//获取指定参数值
+		String goodsId = uri.getQueryParameter("goodsId");
+		Log.e(TAG, "goodsId: " + goodsId);
+}
+	  
+
+注意：  这两种方式的设置只是针对某个页面，都只是在自己应用中跳转第三方应用，并不是真正的唤醒，
+		比如应用A已经在后台存在了，应用B调用以上两种方式后，只是在应用B中重新打开了一个应用A,此时的
+		应用A是相当与存在两个，一个是在后台单独存在，一个是依存应用B存在，是添加到应用B的栈中的。
 
 
 问题：

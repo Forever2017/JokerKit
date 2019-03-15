@@ -43,7 +43,7 @@ public class NavigationButton extends RelativeLayout {
         /**布局文件*/
         LayoutInflater.from(context).inflate(R.layout.joker_navigation_button, this, true);
         /**通过这个方法，将你在atts.xml中定义的declare-styleable的所有属性的值存储到TypedArray中*/
-        TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.TitlStyle);
+        TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.TitlStyleJoker);
 
         init();
     }

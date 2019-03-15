@@ -56,20 +56,20 @@ public class NormalTitleBar extends RelativeLayout {
         /**布局文件*/
         LayoutInflater.from(context).inflate(R.layout.joker_normal_title_barl, this, true);
         /**通过这个方法，将你在atts.xml中定义的declare-styleable的所有属性的值存储到TypedArray中*/
-        TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.TitlStyle);
+        TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.TitlStyleJoker);
 
 
         /** 从TypedArray中取出对应的值来为要设置的属性赋值*/
-        mTitle = attributes.getString(R.styleable.TitlStyle_title);
-        titleColor = attributes.getColor(R.styleable.TitlStyle_title_background_color, R.color.cornflowerblue);
+        mTitle = attributes.getString(R.styleable.TitlStyleJoker_title);
+        titleColor = attributes.getColor(R.styleable.TitlStyleJoker_title_background_color, R.color.cornflowerblue);
 
-        left_visible = attributes.getBoolean(R.styleable.TitlStyle_left_visible, true);
+        left_visible = attributes.getBoolean(R.styleable.TitlStyleJoker_left_visible, true);
         //左边按键默认关闭窗口
-        left_close = attributes.getBoolean(R.styleable.TitlStyle_left_close, true);
+        left_close = attributes.getBoolean(R.styleable.TitlStyleJoker_left_close, true);
 
 
-        right_visible = attributes.getBoolean(R.styleable.TitlStyle_right_visible, false);
-        right_text = attributes.getString(R.styleable.TitlStyle_right_text);
+        right_visible = attributes.getBoolean(R.styleable.TitlStyleJoker_right_visible, false);
+        right_text = attributes.getString(R.styleable.TitlStyleJoker_right_text);
 
 
         /** 获取完TypedArray的值后，一般要调用recyle方法来避免重新创建的时候的错误 */
@@ -144,6 +144,7 @@ public class NormalTitleBar extends RelativeLayout {
         mTitle = title;
         customTitleText.setText(mTitle);
     }
+
     public void setTitleBackground(int color) {
         titleColor = color;
         //标题栏背景色

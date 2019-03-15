@@ -4,6 +4,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <joker.demo.view.MyView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="50dip"
+        android:background="@color/beige"
+        android:text="文本框中的字"
+        android:textColor="@color/red"
+        android:textSize="25dp" />
+
     <Button
         android:id="@+id/test"
         android:layout_width="wrap_content"
