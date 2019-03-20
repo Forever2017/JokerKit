@@ -1,1 +1,1 @@
-include ':jokerLibrary', ':jokerdemo'
+include ':jokerdemo', ':jokerLibrary'

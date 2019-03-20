@@ -41,7 +41,7 @@ public class BottomDialog {
     private Activity mActivity;
     private List<SheetItemBean> mList;
 
-    public BottomDialog(BottomDialog.Builder builder) {
+    public BottomDialog(Builder builder) {
         this.title = builder.getTitle();
         this.mActivity = builder.getActivity();
         this.mHeight = builder.getmHeight();
@@ -66,22 +66,22 @@ public class BottomDialog {
         }
 
         //添加标题
-        public BottomDialog.Builder setTitle(String title) {
+        public Builder setTitle(String title) {
             this.title = title;
             return this;
         }
 
-        public BottomDialog.Builder setActivity(Activity activity) {
+        public Builder setActivity(Activity activity) {
             this.activity = activity;
             return this;
         }
 
-        public BottomDialog.Builder setmHeight(int mHeight) {
+        public Builder setmHeight(int mHeight) {
             this.mHeight = mHeight;
             return this;
         }
 
-        public BottomDialog.Builder setmTextSize(int mTextSize) {
+        public Builder setmTextSize(int mTextSize) {
             this.mTextSize = mTextSize;
             return this;
         }

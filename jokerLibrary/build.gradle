@@ -10,10 +10,14 @@ android {
     }
     sourceSets {
         //用来对应eclipse引用...
+        /* main {
+             manifest.srcFile 'AndroidManifest.xml'
+             java.srcDirs = ['src']
+             res.srcDirs = ['res']
+             jniLibs.srcDirs = ['libs']
+         }*/
+        //不在支持eclipse引用
         main {
-            manifest.srcFile 'AndroidManifest.xml'
-            java.srcDirs = ['src']
-            res.srcDirs = ['res']
             jniLibs.srcDirs = ['libs']
         }
     }
