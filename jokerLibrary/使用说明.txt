@@ -1,17 +1,10 @@
-﻿	注意：Eclipse和AndroidStudio都可以引用使用..
-	AS直接依赖jokerLibrary即可
-	Eclipse除了依赖jokerLibrary，还需要导入RecyclerView项目（AS中已直接依赖，eclipse不支持，需要使用子Lib来使用）
-
-	ERROR:（Eclipse）
-		1. [2018-09-12 17:57:27 - Dex Loader] Failed to load D:\_Eclispe\eclispe\sdk\build-tools\27.0.3\lib\dx.jar
-		   [2018-09-12 17:57:27 - TestLib] Unknown error: Unable to build: the file dx.jar was not loaded from the SDK folder!
-		解决方法：Android SDK Build-tools的版本已经高于Android SDK Platform-tools版本
-		在主项目project.properties文件中增加sdk.buildtools=25.0.3 （25.0.3版本号使用本机有的SDK版本）
+﻿直接依赖jokerLibrary即可。
 
 #######  AS引用外部lib但是不复制到本项目  ###################################################
  setting.gradle
 	include ':app', ':android-beacon-library'  
 	project(':android-beacon-library').projectDir = new File('../android-beacon-library')
+	
 build.gradle
 	implementation project(':android-beacon-library')
 
@@ -38,7 +31,7 @@ project(':jokerLibrary').projectDir = new File('D:\\GitHub\\JokerKit\\jokerLibra
 	* github_黄油刀_butterknife.txt
 * github.encapsulation     //git第三方库，封装一些便用的直接使用
 	* ormlite	数据库
-	* SwitchButton  //类似IOS风格的开关按钮 开源地址：https://github.com/Forever2017/SwitchButton
+	* SwitchButton  //类似IOS风格的开关按钮 
 
 //###########################
 

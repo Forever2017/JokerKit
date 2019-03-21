@@ -1,4 +1,4 @@
-package ios.imitation.LoadingDialog;
+package joker.kit.customView.ios;
 
 import android.app.Dialog;
 import android.content.Context;

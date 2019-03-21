@@ -9,10 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import ios.imitation.LoadingDialog.LoadingDialog;
+import joker.kit.customView.ios.LoadingDialog;
 
-public abstract class FragmentJoker extends Fragment {
-    private static final String TAG = "FragmentJoker";
+public abstract class JBaseFragment extends Fragment {
+    private static final String TAG = "JBaseFragment";
     private LoadingDialog mLoadingDialog;//仿IOS菊花等待框..
     public View viewJoker;
     public Activity activityJoker;
@@ -58,13 +58,13 @@ public abstract class FragmentJoker extends Fragment {
         super.onCreate(savedInstanceState);
         activityJoker = getActivity();
         viewJoker = activityJoker.getLayoutInflater().inflate(getLayoutId(), null, false);
-        Log.e("FragmentJoker", "onCreate");
+        Log.e("JBaseFragment", "onCreate");
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        Log.e("FragmentJoker", "onCreateView");
+        Log.e("JBaseFragment", "onCreateView");
 
         // 这句话必须加
         ViewGroup p = (ViewGroup) viewJoker.getParent();

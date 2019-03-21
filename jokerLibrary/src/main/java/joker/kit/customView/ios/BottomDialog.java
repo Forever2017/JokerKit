@@ -1,12 +1,9 @@
-package ios.imitation.BottomDialog;
+package joker.kit.customView.ios;
 
 import android.app.Activity;
 import android.graphics.drawable.ColorDrawable;
-import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -17,7 +14,8 @@ import java.util.List;
 import joker.kit.base.R;
 import joker.kit.number.Transform;
 
-/*new BottomDialog.Builder()
+/*
+new BottomDialog.Builder()
         .setTitle("标题")
         .setActivity(MainActivity.this)
         .setmHeight(40)
@@ -30,9 +28,8 @@ import joker.kit.number.Transform;
                     Toast("点击上传图片！");
                     }
                     }))
-        .show();*/
-
-
+        .show();
+*/
 public class BottomDialog {
     //    private Context context;
     private String title;//标题

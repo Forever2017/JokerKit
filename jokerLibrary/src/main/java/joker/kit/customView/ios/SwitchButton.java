@@ -1,4 +1,4 @@
-package ios.imitation.SwitchButton;
+package joker.kit.customView.ios;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
@@ -23,6 +23,23 @@ import joker.kit.base.R;
 /**
  * SwitchButton.
  * 类似IOS风格的开关按钮
+ */
+/*      xml:
+        <joker.kit.customView.imitation.SwitchButton
+            android:id="@+id/switch_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        java:
+        switchButton.setOnCheckedChangeListener(new SwitchButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(SwitchButton view, boolean isChecked) {
+                if (isChecked) Toast("打开");
+                else Toast("关闭");
+            }
+        });
+
  */
 public class SwitchButton extends View implements Checkable {
     private static final int DEFAULT_WIDTH = dp2pxInt(58);

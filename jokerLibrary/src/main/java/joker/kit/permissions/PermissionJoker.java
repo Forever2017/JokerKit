@@ -7,7 +7,7 @@ import com.hjq.permissions.XXPermissions;
 
 import java.util.List;
 
-import ios.imitation.TitleDialog.TitleDialog;
+import joker.kit.customView.ios.MessageDialog;
 import joker.kit.utils.LogUtils;
 
 public class PermissionJoker {
@@ -49,9 +49,9 @@ public class PermissionJoker {
                             if (quick) {
                                 LogUtils.e("被永久拒绝授权，请手动授予权限");
 
-                                TitleDialog dialog = new TitleDialog(activity);
+                                MessageDialog dialog = new MessageDialog(activity);
                                 dialog.setTitle("已永久拒绝权限申请,是否跳转到系统设置页面?");
-                                dialog.setCstDialogOnClickListener(new TitleDialog.CstDialogOnClickListener() {
+                                dialog.setCstDialogOnClickListener(new MessageDialog.CstDialogOnClickListener() {
                                     @Override
                                     public void onClickSure() {
                                         //跳转到设置页面   如果是被永久拒绝就跳转到应用权限系统设置页面

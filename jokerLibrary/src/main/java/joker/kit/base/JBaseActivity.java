@@ -14,7 +14,7 @@ import joker.kit.permissions.PermissionCallback;
 import joker.kit.utils.ActivityManager;
 import joker.kit.utils.LogUtils;
 
-public class ActivityJoker extends Activity {
+public class JBaseActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

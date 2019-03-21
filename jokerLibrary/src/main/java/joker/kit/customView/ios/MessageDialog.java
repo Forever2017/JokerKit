@@ -1,4 +1,4 @@
-package ios.imitation.TitleDialog;
+package joker.kit.customView.ios;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -21,12 +21,12 @@ import joker.kit.base.R;
 
 
 /**
- * 自定义Dialog
+ * 对话框  确认 取消..
  * <p>
  * 作者：
  * 时间：2016-05-16
  */
-public class TitleDialog extends Dialog {
+public class MessageDialog extends Dialog {
     private Context context;
     private TextView title;
     private TextView cancel;
@@ -37,14 +37,14 @@ public class TitleDialog extends Dialog {
     private LinearLayout contentView;
     private CstDialogOnClickListener cstDialogOnClickListener;
 
-    public TitleDialog(Context context, CstDialogOnClickListener l) {
+    public MessageDialog(Context context, CstDialogOnClickListener l) {
         this(context);
         this.cstDialogOnClickListener = l;
         register();
     }
 
 
-    public TitleDialog(Context context, String leftStr, String rightStr) {
+    public MessageDialog(Context context, String leftStr, String rightStr) {
         super(context);
         init(context);
         register();
@@ -57,17 +57,17 @@ public class TitleDialog extends Dialog {
         }
     }
 
-    public TitleDialog(Context context) {
+    public MessageDialog(Context context) {
         super(context);
         init(context);
     }
 
-    public TitleDialog(Context context, int theme) {
+    public MessageDialog(Context context, int theme) {
         super(context, theme);
         init(context);
     }
 
-    protected TitleDialog(Context context, boolean cancelable, OnCancelListener cancelListener) {
+    protected MessageDialog(Context context, boolean cancelable, OnCancelListener cancelListener) {
         super(context, cancelable, cancelListener);
         init(context);
     }
