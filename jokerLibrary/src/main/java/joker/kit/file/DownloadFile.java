@@ -74,7 +74,7 @@ public class DownloadFile {
      *                 相关技术帖子
      *                 https://my.oschina.net/zbj1618/blog/1536946
      */
-    public static void downloadFile(Context context, String mUrl, String sdFile, String fileName) {
+    public static void downloadFileSystem(Context context, String mUrl, String sdFile, String fileName) {
 
         //创建下载任务,downloadUrl就是下载链接
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(mUrl));

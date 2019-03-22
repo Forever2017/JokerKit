@@ -1,17 +1,34 @@
 package joker.kit.permissions;
 
 import android.app.Activity;
+import android.content.Intent;
 
 import com.hjq.permissions.OnPermission;
+import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
 
 import java.util.List;
 
 import joker.kit.customView.ios.MessageDialog;
+import joker.kit.file.SdcardUtil;
 import joker.kit.utils.LogUtils;
 
 public class PermissionJoker {
+    /* 使用..
+    PermissionJoker.checkPermission(StartActivity.this, new PermissionCallback() {
+        @Override
+        public void onSucess() {
 
+            //已经获得存储权限..
+
+        }
+
+        @Override
+        public void onFailure() {
+            *//*Toast("未获得权限！");*//*
+        }
+    },
+    Permission.Group.STORAGE);//需要获得的权限.. */
 
     /**
      * 获取动态权限
