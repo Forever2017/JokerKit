@@ -28,6 +28,7 @@ http://square.github.io/retrofit/
     public interface ApiInterface {
         @POST("Login/CheckLogin")
         Call<LoginBean> login(@Field("Account") String ccount,@Field("PassWord") String PassWord);
+
     }
 
 5、创建Retrofit
@@ -60,3 +61,11 @@ http://square.github.io/retrofit/
 ### 基础用法完成.
     1. 注解等详解：https://www.jianshu.com/p/308f3c54abdd
     2.
+
+
+####
+    //直接返回文本String
+            @GET("jokercrazy.json")
+            Call<ResponseBody> getList();
+       --->
+            String mDataBean = response.body().string();

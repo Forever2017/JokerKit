@@ -16,6 +16,10 @@
 
 
 ##############  简单使用    ##############
+
+implementation 'com.android.support:recyclerview-v7:27.1.1'
+
+
 xml:
     <android.support.v7.widget.RecyclerView
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -43,27 +47,27 @@ activity:
 	
 
 Adapter适配器：
-    public class ChooseAreaAdapter extends RecyclerView.Adapter<ChooseAreaAdapter.ChooseAreaViewHolder> {
+public class AllAdapter  extends RecyclerView.Adapter<AllAdapter.ItemViewHolder> {
     private final LayoutInflater mLayoutInflater;
-    List<BaseBean> mList;
+    List<WordBean> mList;
 
-    public ChooseAreaAdapter(Context context, List<BaseBean> mList) {
+    public ChooseAreaAdapter(Context context, List<WordBean> mList) {
         this.mList = mList;
         mLayoutInflater = LayoutInflater.from(context);
     }
 
     @Override
-    public ChooseAreaViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        ChooseAreaViewHolder holder = new ChooseAreaViewHolder(
+    public ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        ItemViewHolder holder = new ItemViewHolder(
                 mLayoutInflater.inflate(R.layout.item_base, parent, false)
         );
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(ChooseAreaViewHolder holder, int position) {
+    public void onBindViewHolder(ItemViewHolder holder, int position) {
         holder.ItemName.setText(mList.get(position).getName());
-      //  holder.ItemId.setText(mList.get(position).getId());
+        //  holder.ItemId.setText(mList.get(position).getId());
     }
 
     @Override
@@ -71,11 +75,11 @@ Adapter适配器：
         return mList.size();
     }
 
-    class ChooseAreaViewHolder extends RecyclerView.ViewHolder {
+    class ItemViewHolder extends RecyclerView.ViewHolder {
 
         TextView ItemName, ItemId;
 
-        public ChooseAreaViewHolder(View view) {
+        public ItemViewHolder(View view) {
             super(view);
             ItemId = (TextView) view.findViewById(R.id.ItemBaseId);
             ItemName = (TextView) view.findViewById(R.id.ItemBaseName);

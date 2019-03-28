@@ -1,25 +1,21 @@
 package joker.kit.base;
 
-import android.Manifest;
 import android.app.Activity;
-import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import joker.kit.permissions.PermissionCallback;
 import joker.kit.utils.ActivityManager;
-import joker.kit.utils.LogUtils;
 
-public class JBaseActivity extends Activity {
+public class JBaseAActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        //隐藏Bar标题栏
+        getSupportActionBar().hide();
 
         /**将当前Activity推入栈中*/
         ActivityManager.getInstance().pushActivity(this);

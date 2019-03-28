@@ -1,6 +1,4 @@
-
-   http://ormlite.com/releases/
-    https://www.jianshu.com/p/09f4c50c934d
+博客文章：https://my.oschina.net/Forever2019/blog/3028972#h1_3
 
 
     添加如下依赖关系

@@ -7,7 +7,9 @@
     <dimen name="font_size_16">16dp</dimen>
     <dimen name="font_size_17">17dp</dimen>
     <dimen name="font_size_18">18dp</dimen>
-    
+    <dimen name="font_size_22">22dp</dimen>
+    <dimen name="font_size_25">25dp</dimen>
+
     <dimen name="length_1">1dip</dimen>
     <dimen name="length_3">3dip</dimen>
     <dimen name="length_5">5dip</dimen>

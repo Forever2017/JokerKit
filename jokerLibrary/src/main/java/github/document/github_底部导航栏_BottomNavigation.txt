@@ -16,14 +16,16 @@ https://github.com/Ashok-Varma/BottomNavigation
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <FrameLayout
-                    android:id="@+id/LiveActivityFrameLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
-        //导航栏
+            android:id="@+id/MainActivityFrameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <!-- 导航栏-->
         <com.ashokvarma.bottomnavigation.BottomNavigationBar
-            android:id="@+id/LiveActivityBottom"
+            android:id="@+id/MainActivityBottom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom" />
@@ -37,7 +39,7 @@ https://github.com/Ashok-Varma/BottomNavigation
 
         bottomNavigationBar
                 //背景显示风格
-                .setMode(BottomNavigationBar.MODE_DEFAULT)
+                .setMode(BottomNavigationBar.MODE_FIXED)
                 //选中图标的颜色（含文字）
                 .setActiveColor(R.color.blueviolet)
                 //未选中图标的颜色（含文字）
