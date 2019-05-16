@@ -18,25 +18,27 @@ public class InstallAdapt {
      要在应用间共享文件，您应发送一项 content:// URI，并授予 URI 临时访问权限。进行此授权的最简单方式是使用 FileProvider 类。
      利用FileProvider类进行授权：
      1、在清单文件中定义一个FileProvider
+
      <application
      ...>
-         <provider
-             android:name="android.support.v4.content.FileProvider"   固定
-             android:authorities="包名.fileprovider"   包名+“.fileprovider”
-             android:grantUriPermissions="true" 固定
-             android:exported="false">  固定
-                 <meta-data
-                 android:name="android.support.FILE_PROVIDER_PATHS"  固定
-                 android:resource="@xml/filepaths" />  根据自身文件路劲
-         </provider>
+     <provider
+     android:name="android.support.v4.content.FileProvider"   固定
+     android:authorities="包名.fileprovider"   包名+“.fileprovider”
+     android:grantUriPermissions="true" 固定
+     android:exported="false">  固定
+     <meta-data
+     android:name="android.support.FILE_PROVIDER_PATHS"  固定
+     android:resource="@xml/filepaths" />  根据自身文件路劲
+     </provider>
      ...
      </application>
+
 
      2、设置共享文件的位置  res/xml/filepaths.xml
      <?xml version="1.0" encoding="utf-8"?>
      <paths>
-             <external-path name="sinyi_joker" path="SINYI" />   path="." 时 为根目录，sinyi_joker是URI的虚拟路劲
-             <!--物理路径相当于Context.getExternalFilesDir(String) + /SINYI/  更多的Google查-->
+     <external-path name="sinyi_joker" path="SINYI" />   path="." 时 为根目录，sinyi_joker是URI的虚拟路劲
+     <!--物理路径相当于Context.getExternalFilesDir(String) + /SINYI/  更多的Google查-->
      </paths>
      3、安装实现代码..
 
@@ -44,8 +46,14 @@ public class InstallAdapt {
 
 
     /**
-     * 安装APK，适配7.0+
+     * 安装APK，
+     * 新增：适配7.0+
      * apkFile   APK文件路径
+     *
+     * 新增：适配8.0
+     * Android 8.0更新主要是对Intent隐式安装APK做了个安全管理：
+     * 需要在mainfist中添加一行权限：
+     * <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
      */
     public static void InstallApp(Context mContext, File apkFile) {
         String authority = mContext.getPackageName() + ".fileprovider"; //获取 android:authorities
@@ -56,6 +64,7 @@ public class InstallAdapt {
         }
 
         Intent install = new Intent(Intent.ACTION_VIEW);
+        //如果不加，最后安装完成，点打开，无法打开新版本应用
         install.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {// 大于等于 7.0
@@ -73,6 +82,8 @@ public class InstallAdapt {
         }
 
         mContext.startActivity(install);
+        //如果不加，最后不会提示完成、打开
+        android.os.Process.killProcess(android.os.Process.myPid());
 
 
     }
@@ -97,6 +108,8 @@ public class InstallAdapt {
     }
 
 }
+
+
 
 
 

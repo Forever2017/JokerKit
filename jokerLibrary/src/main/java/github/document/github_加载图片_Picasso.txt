@@ -1,0 +1,41 @@
+picasso是Square公司开源的一个Android图形缓存库，可以实现图片下载和缓存功能。
+官方地址：http://square.github.io/picasso/
+github地址：https://github.com/square/picasso
+
+
+		//加载图片
+        Picasso.with(this).load(url).into(mIv);
+        //mIv2控件不能设置成wrap_content,也就是必须有大小才行,fit()才让图片的宽高等于mIv2的宽高，设置fit()，不能再调用resize()
+        Picasso.with(this).load(url).fit().into(mIv2);
+        //将加载的图片指定高宽显示
+        Picasso.with(this).load(url).resize(200, 300).centerCrop().into(mIv3);
+        //将加载的图片进行截取显示
+//        Picasso.with(this).load(url).transform(new CropSquareTransformation()).into(mIv3);
+        //默认显示placeholder，加载错误显示ic_launcher
+//        Picasso.with(this).load(url).placeholder(R.mipmap.placeholder).error(R.mipmap.ic_launcher).into(mIv4);
+        //默认显示placeholder，加载错误显示ic_launcher，指定placeholder大小显示
+        Picasso.with(this).load(url).placeholder(R.mipmap.placeholder).fit().error(R.mipmap.ic_launcher).into(mIv4);
+
+		
+		
+自定义裁剪类
+public class CropSquareTransformation implements Transformation {
+
+	//截取从宽度和高度最小作为bitmap的宽度和高度
+	@Override
+	public Bitmap transform(Bitmap source) {
+		int size=Math.min(source.getWidth(),source.getHeight());
+			int x=(source.getWidth()-size)/2;
+			int y=(source.getHeight()-size)/2;
+			Bitmap result=Bitmap.createBitmap(source,x,y,size,size);
+			if (result!=source){
+				source.recycle();//释放bitmap
+		}
+		return result;
+	}
+
+	@Override
+	public String key() {
+		return "square()";
+		}
+}		
