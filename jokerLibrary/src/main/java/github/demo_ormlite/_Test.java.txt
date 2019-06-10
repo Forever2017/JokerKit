@@ -6,7 +6,8 @@
 
 
     //用法
-    TDao<User> tdao = new TDao<User>(context, User.class);
+    TDao<User> tdao;
+    tdao = new TDao<User>(context, User.class);
 
      //直接调用查询
      tdao.queryAll();
