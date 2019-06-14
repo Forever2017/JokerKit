@@ -57,6 +57,20 @@ http://square.github.io/retrofit/
                 Log.d("cylog", "Error" + t.toString());
             }
         });
+7、创建请求，在body中设置JSON请求	
+	1.
+	@POST("Customer/CreateEditNewCustomerInfo")
+    Observable<String> newCreateEditNewCustomerInfo(@Body RequestBody requestBody);
+	
+	2.
+	HashMap map = new HashMap();
+	map.put("id", "10086");
+	map.put("name", "Allen");
+	String jsondata = new Gson().toJson(map);	
+	RequestBody requestBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), jsondata);
+	
+	3.  ... .方法名(requestBody).map( ...
+		
 
 ### 基础用法完成.
     1. 注解等详解：https://www.jianshu.com/p/308f3c54abdd

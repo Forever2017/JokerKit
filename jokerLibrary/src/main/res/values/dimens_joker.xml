@@ -14,6 +14,7 @@
     <dimen name="length_3">3dip</dimen>
     <dimen name="length_5">5dip</dimen>
     <dimen name="length_10">10dip</dimen>
+    <dimen name="length_12">12dip</dimen>
     <dimen name="length_15">15dip</dimen>
     <dimen name="length_40">40dip</dimen>
     <dimen name="length_45">45dip</dimen>
