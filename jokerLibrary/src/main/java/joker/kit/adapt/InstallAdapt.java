@@ -82,9 +82,13 @@ public class InstallAdapt {
         }
 
         mContext.startActivity(install);
-        //如果不加，最后不会提示完成、打开
-        android.os.Process.killProcess(android.os.Process.myPid());
-
+		try {
+			Thread.sleep(2000);
+			//如果不加，最后不会提示完成、打开
+			android.os.Process.killProcess(android.os.Process.myPid());
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 
     }
 
